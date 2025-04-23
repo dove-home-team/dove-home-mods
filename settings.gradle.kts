@@ -13,6 +13,7 @@ plugins {
 }
 
 include("coremod")
+include("java-annotation", "java-processor")
 
 
 rootProject.name = "dove"

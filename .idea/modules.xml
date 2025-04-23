@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-annotation/dove.java-annotation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java-annotation/dove.java-annotation.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" />
     </modules>
   </component>
 </project>

@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/coremod" />
+            <option value="$PROJECT_DIR$/java-annotation" />
+            <option value="$PROJECT_DIR$/java-processor" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="true" />

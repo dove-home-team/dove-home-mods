@@ -1,5 +1,5 @@
 autoDetectedPackages:
-- io.github.dovehometeam.dovecore
+- io.github.dovehometeam.dovecoremod
 enableAutoDetect: true
 entryDisplayConfig:
   excludedPathPatterns: []
