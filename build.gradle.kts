@@ -47,6 +47,7 @@ allprojects {
     }
     repositories {
         mavenLocal()
+        mavenCentral()
     }
     idea {
         module {
@@ -175,6 +176,41 @@ subprojects {
             }, {
                 logger.error("Cannot find bundle: ${base.archivesName.get()}_prepose")
             })
+            lib.findBundle(base.archivesName.get()+"_ap").ifPresentOrElse({
+                annotationProcessor(it)
+            }, {
+                logger.error("Cannot find bundle: ${base.archivesName.get()}_ap")
+            })
+            lib.findBundle("all_compileOnly").ifPresentOrElse({
+                compileOnly(it)
+            }, {
+                logger.error("Cannot find bundle: all_compileOnly")
+            })
+            lib.findBundle("all_runtimeOnly").ifPresentOrElse({
+                runtimeOnly(it)
+            }, {
+                logger.error("Cannot find bundle: all_runtimeOnly")
+            })
+            lib.findBundle("all_linkage").ifPresentOrElse({
+                compileOnly(it)
+                runtimeOnly(it)
+            }, {
+                logger.error("Cannot find bundle: all_linkage")
+            })
+            lib.findBundle("all_prepose").ifPresentOrElse({
+                implementation(it)
+            }, {
+                logger.error("Cannot find bundle: all_prepose")
+            })
+            lib.findBundle("all_ap").ifPresentOrElse({
+                annotationProcessor(it)
+            }, {
+                logger.error("Cannot find bundle: all_ap")
+            })
+            if (!project.name.contains("java")) {
+                compileOnly(project(":java-annotation"))
+                annotationProcessor(project(":java-processor"))
+            }
         }
 
         val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata") {
