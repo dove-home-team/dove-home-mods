@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/coremod" />
             <option value="$PROJECT_DIR$/java-annotation" />
             <option value="$PROJECT_DIR$/java-processor" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/staff" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="true" />

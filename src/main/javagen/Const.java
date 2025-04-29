@@ -7,7 +7,11 @@ import java.lang.String;
 public class Const {
     public static final String MODID = "{modid}";
 
-    public ResourceLocation modLoc(String path) {
+    public static ResourceLocation modLoc(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+
+    public static ResourceLocation cLoc(String path) {
+        return ResourceLocation.fromNamespaceAndPath("c", path);
     }
 }

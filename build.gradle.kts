@@ -28,12 +28,12 @@ tasks.named<Wrapper>("wrapper").configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 allprojects {
     apply(plugin = "idea")
     apply(plugin = "maven-publish")
     apply(plugin = "java-library")
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
     if (project.name.contains("java").not() && project != rootProject) {
         apply(plugin = "net.neoforged.moddev")
         version = modVersion
@@ -41,6 +41,7 @@ allprojects {
             .replace("{YEAR}", date.year.toString())
             .replace("{MONTH}", date.monthValue.toString())
             .replace("{DAY}", date.dayOfMonth.toString())
+            .replace("{HOUR}", date.hour.toString())
             .replace("{MINUTE}", date.minute.toString())
             .replace("{SECOND}", date.second.toString())
         group = modGroupId
@@ -67,6 +68,15 @@ subprojects {
         archivesName = modid + "_" + project.name
     }
     if (project.name.contains("java").not().and(project!=rootProject)) {
+        val copyToMerge = tasks.register<Copy>("copyToMerge") {
+            into("${rootProject.file("build")}/libs")
+            from(tasks.jar.get().outputs.files)
+        }
+
+        tasks.build {
+            dependsOn(copyToMerge.get())
+        }
+
         neoForge {
             version = neoVersion
             parchment {
@@ -97,6 +107,7 @@ subprojects {
                         "--output", file("src/generated/resources/").absolutePath,
                         "--existing", file("src/main/resources/").absolutePath
                     ))
+                    environment("datagen", "true")
                 }
                 configureEach {
                     systemProperty("forge.logging.markers", "REGISTRIES")
@@ -119,9 +130,11 @@ subprojects {
                 }
             }
 
+            val packageName = "io.github.dovehometeam.dove" + project.name
+            val outputDir = file("build/generated/sources/main/java/${packageName.replace(".", "/")}")
+
             val generateSimpleClasses by tasks.registering {
-                val packageName = "io.github.dovehometeam.dove" + project.name
-                val outputDir = file("build/generated/sources/main/java/${packageName.replace(".", "/")}")
+
                 val genlist =rootProject.file("src/main/javagen")
                 doLast {
                     outputDir.mkdirs()
@@ -137,8 +150,24 @@ subprojects {
                 }
             }
 
+
+            tasks.register<Exec>("testBatTask") {
+                workingDir(file("./"))
+                commandLine("cmd","/c","gradlew build")
+            }
+
+            if (outputDir.exists().not()) {
+                tasks.neoForgeIdeSync {
+                    dependsOn(tasks.build)
+                }
+            }
+
+
+
             tasks.compileJava {
                 dependsOn(generateSimpleClasses)
+                if(System.getenv("datagen") == null)
+                    exclude(("$packageName.datagen").replace(".", "/"))
             }
 
         }
@@ -239,5 +268,18 @@ subprojects {
             }
         }
         neoForge.ideSyncTask(generateModMetadata)
+    }
+
+}
+
+//val clearLib = tasks.register<Delete>("clearLib") {
+//    delete("build/libs/**")
+//}
+
+val buildAll by tasks.registering {
+    subprojects.forEach {
+        if (it.name.contains("java").not()) {
+            dependsOn(it.tasks.build)
+        }
     }
 }

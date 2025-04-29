@@ -12,7 +12,7 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention").version("0.9.0")
 }
 
-include("coremod")
+include("lib","coremod", "staff")
 include("java-annotation", "java-processor")
 
 

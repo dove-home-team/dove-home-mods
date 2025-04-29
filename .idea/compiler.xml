@@ -9,6 +9,8 @@
           <entry name="$PROJECT_DIR$/java-annotation/build/libs/dove_java-annotation.jar" />
         </processorPath>
         <module name="dove.coremod.main" />
+        <module name="dove.staff.main" />
+        <module name="dove.lib.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -35,7 +37,7 @@
         <module name="dove.java-processor.test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="21" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
