@@ -23,14 +23,16 @@ import java.util.List;
 public class WandItem extends Item {
     public final float min_cast_delay, max_cast_delay;
     public final float min_rechrg_time, max_rechrg_time;
-    public final float min_max_mana,max_mana;
+    public final int min_max_mana,max_mana;
+    public final int min_mana_chg_spd, max_mana_chg_spd;
     public WandItem(
             Properties properties,
             boolean shuffle,
             int spells_cast,
             float min_cast_delay, float max_cast_delay,
             float min_rechrg_time, float max_rechrg_time,
-            float min_max_mana, float max_mana
+            int min_max_mana, int max_mana,
+            int min_mana_chg_spd, int max_mana_chg_spd
     ) {
         super(properties
                 .component(ModComponents.SHUFFLE, shuffle)
@@ -42,6 +44,8 @@ public class WandItem extends Item {
         this.max_rechrg_time = max_rechrg_time;
         this.min_max_mana = min_max_mana;
         this.max_mana = max_mana;
+        this.min_mana_chg_spd = min_mana_chg_spd;
+        this.max_mana_chg_spd = max_mana_chg_spd;
     }
 
     @Override
@@ -54,8 +58,11 @@ public class WandItem extends Item {
             stack.set(ModComponents.RECHRG_TIME, Mth.nextFloat(entity.getRandom(), min_rechrg_time, max_rechrg_time));
         }
         if (!stack.has(ModComponents.MANA_MAX)) {
-            stack.set(ModComponents.MANA_MAX, Mth.nextFloat(entity.getRandom(), min_max_mana, max_mana));
-            stack.set(ModComponents.MANA, 0F);
+            stack.set(ModComponents.MANA_MAX, Mth.nextInt(entity.getRandom(), min_max_mana, max_mana));
+            stack.set(ModComponents.MANA, 0);
+        }
+        if (!stack.has(ModComponents.MANA_CHG_SPD)) {
+            stack.set(ModComponents.MANA_CHG_SPD, Mth.nextInt(entity.getRandom(), min_mana_chg_spd, max_mana_chg_spd));
         }
     }
 
@@ -77,6 +84,8 @@ public class WandItem extends Item {
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.mana.tooltip"))
                 .append("%s/%s".formatted(stack.getOrDefault(ModComponents.MANA, 0), stack.getOrDefault(ModComponents.MANA_MAX, min_max_mana))));
-
+        components.add(Component.empty()
+                .append(Component.translatable("mystics.ad.libitum.mana_chg.spd.tooltip"))
+                .append(String.valueOf(stack.getOrDefault(ModComponents.MANA_CHG_SPD, min_mana_chg_spd))));
     }
 }

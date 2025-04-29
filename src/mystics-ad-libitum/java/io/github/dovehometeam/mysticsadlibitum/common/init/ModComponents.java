@@ -29,20 +29,30 @@ public class ModComponents {
                     builder
                             .persistent(Codec.FLOAT)
                             .networkSynchronized(ByteBufCodecs.FLOAT));
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Float>> MANA =
-            REGISTER.registerComponentType("mana", builder ->
-                    builder
-                            .persistent(Codec.FLOAT)
-                            .networkSynchronized(ByteBufCodecs.FLOAT));
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Float>> MANA_MAX =
-            REGISTER.registerComponentType("mana_max", builder ->
-                    builder
-                            .persistent(Codec.FLOAT)
-                            .networkSynchronized(ByteBufCodecs.FLOAT));
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Float>> RECHRG_TIME =
             REGISTER.registerComponentType("rechrg_time", builder ->
                     builder
                             .persistent(Codec.FLOAT)
                             .networkSynchronized(ByteBufCodecs.FLOAT));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MANA =
+            REGISTER.registerComponentType("mana", builder ->
+                    builder
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MANA_MAX =
+            REGISTER.registerComponentType("mana_max", builder ->
+                    builder
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MANA_CHG_SPD
+            = REGISTER.registerComponentType("mana_chg_spd", builder ->
+                    builder
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT));
+
+
+
+    //Mana chg. Spd
 }

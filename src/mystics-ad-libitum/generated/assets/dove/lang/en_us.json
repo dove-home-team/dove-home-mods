@@ -3,6 +3,7 @@
   "item.mystics_ad_libitum.started_wand": "Started Wand",
   "mystics.ad.libitum.cast.delay.tooltip": "Cast Delay: ",
   "mystics.ad.libitum.mana.tooltip": "MANA/MANA Max: ",
+  "mystics.ad.libitum.mana_chg.spd.tooltip": "Mana chg. Spd: ",
   "mystics.ad.libitum.rechrg.time.tooltip": "Rechrg. Time: ",
   "mystics.ad.libitum.shuffle.tooltip": "Shuffle: ",
   "mystics.ad.libitum.spells.cast.tooltip": "Spells/Cast: "
