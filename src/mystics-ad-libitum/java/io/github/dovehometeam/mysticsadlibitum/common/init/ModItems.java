@@ -14,8 +14,8 @@ public class ModItems {
     public static final DeferredRegister.Items REGISTER = DeferredRegister.createItems(Const.MODID);
 
     public static final DeferredItem<WandItem> STARTED_WAND = REGISTER.register("started_wand",
-                () -> new WandItem(new Item.Properties(), false, 1, 0.15F, 0.25F, 0.33F, 0.47F, 80, 130, 25, 40));
+                () -> new WandItem(new Item.Properties(), false, 1, 0.15F, 0.25F, 0.33F, 0.47F, 80, 130, 25, 40, 2, 3));
     public static final DeferredItem<WandItem> STARTED_BOMB_WAND = REGISTER.register("started_bomb_wand",
-                () -> new WandItem(new Item.Properties(), true, 1, 0.05F, 0.13F, 0.02F, 0.17F, 80, 110, 25, 40));
+                () -> new WandItem(new Item.Properties(), true, 1, 0.05F, 0.13F, 0.02F, 0.17F, 80, 110, 25, 40, 1, 1));
 
 }

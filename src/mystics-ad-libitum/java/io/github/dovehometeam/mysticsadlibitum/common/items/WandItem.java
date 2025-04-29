@@ -2,16 +2,21 @@ package io.github.dovehometeam.mysticsadlibitum.common.items;
 
 import io.github.dovehometeam.mysticsadlibitum.common.init.ModComponents;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +30,7 @@ public class WandItem extends Item {
     public final float min_rechrg_time, max_rechrg_time;
     public final int min_max_mana,max_mana;
     public final int min_mana_chg_spd, max_mana_chg_spd;
+    public final int min_capacity, max_capacity;
     public WandItem(
             Properties properties,
             boolean shuffle,
@@ -32,7 +38,9 @@ public class WandItem extends Item {
             float min_cast_delay, float max_cast_delay,
             float min_rechrg_time, float max_rechrg_time,
             int min_max_mana, int max_mana,
-            int min_mana_chg_spd, int max_mana_chg_spd
+            int min_mana_chg_spd, int max_mana_chg_spd,
+            int min_capacity, int max_capacity
+
     ) {
         super(properties
                 .component(ModComponents.SHUFFLE, shuffle)
@@ -46,6 +54,8 @@ public class WandItem extends Item {
         this.max_mana = max_mana;
         this.min_mana_chg_spd = min_mana_chg_spd;
         this.max_mana_chg_spd = max_mana_chg_spd;
+        this.min_capacity = min_capacity;
+        this.max_capacity = max_capacity;
     }
 
     @Override
@@ -63,6 +73,9 @@ public class WandItem extends Item {
         }
         if (!stack.has(ModComponents.MANA_CHG_SPD)) {
             stack.set(ModComponents.MANA_CHG_SPD, Mth.nextInt(entity.getRandom(), min_mana_chg_spd, max_mana_chg_spd));
+        }
+        if (!stack.has(DataComponents.CONTAINER)) {
+            stack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(NonNullList.withSize(Mth.nextInt(entity.getRandom(), min_capacity, max_capacity), ItemStack.EMPTY)));
         }
     }
 
@@ -87,5 +100,8 @@ public class WandItem extends Item {
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.mana_chg.spd.tooltip"))
                 .append(String.valueOf(stack.getOrDefault(ModComponents.MANA_CHG_SPD, min_mana_chg_spd))));
+        components.add(Component.empty()
+                .append(Component.translatable("mystics.ad.libitum.capacity.tooltip"))
+                .append(String.valueOf(stack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).getSlots())));
     }
 }

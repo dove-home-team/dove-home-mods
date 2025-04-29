@@ -20,6 +20,7 @@ public enum ModLanguage {
         lang.add("mystics.ad.libitum.rechrg.time.tooltip", "Rechrg. Time: ");
         lang.add("mystics.ad.libitum.mana.tooltip", "MANA/MANA Max: ");
         lang.add("mystics.ad.libitum.mana_chg.spd.tooltip", "Mana chg. Spd: ");
+        lang.add("mystics.ad.libitum.capacity.tooltip", "Capacity: ");
         lang.add(ModItems.STARTED_WAND.get(), "Started Wand");
         lang.add(ModItems.STARTED_BOMB_WAND.get(), "Started Bomb Wand");
     }),
@@ -30,6 +31,7 @@ public enum ModLanguage {
         lang.add("mystics.ad.libitum.rechrg.time.tooltip", "充能延迟: ");
         lang.add("mystics.ad.libitum.mana.tooltip", "法力/最大法力值: ");
         lang.add("mystics.ad.libitum.mana_chg.spd.tooltip", "法力充能速度: ");
+        lang.add("mystics.ad.libitum.capacity.tooltip", "容量: ");
         lang.add(ModItems.STARTED_WAND.get(), "初始魔杖");
         lang.add(ModItems.STARTED_BOMB_WAND.get(), "初始炸弹杖");
     }),

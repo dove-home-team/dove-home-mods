@@ -1,6 +1,7 @@
 {
   "item.mystics_ad_libitum.started_bomb_wand": "Started Bomb Wand",
   "item.mystics_ad_libitum.started_wand": "Started Wand",
+  "mystics.ad.libitum.capacity.tooltip": "Capacity: ",
   "mystics.ad.libitum.cast.delay.tooltip": "Cast Delay: ",
   "mystics.ad.libitum.mana.tooltip": "MANA/MANA Max: ",
   "mystics.ad.libitum.mana_chg.spd.tooltip": "Mana chg. Spd: ",
