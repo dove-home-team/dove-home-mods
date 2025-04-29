@@ -1,0 +1,9 @@
+{
+  "item.mystics_ad_libitum.started_bomb_wand": "初始炸弹杖",
+  "item.mystics_ad_libitum.started_wand": "初始魔杖",
+  "mystics.ad.libitum.cast.delay.tooltip": "施法延迟: ",
+  "mystics.ad.libitum.mana.tooltip": "魔力/最大魔力值: ",
+  "mystics.ad.libitum.rechrg.time.tooltip": "充能延迟: ",
+  "mystics.ad.libitum.shuffle.tooltip": "乱序: ",
+  "mystics.ad.libitum.spells.cast.tooltip": "法术数/释放: "
+}

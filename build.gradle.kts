@@ -1,6 +1,7 @@
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.slf4j.event.Level
 import java.time.LocalDateTime
+import java.util.*
 
 
 plugins {
@@ -64,8 +65,13 @@ allprojects {
 val lib = versionCatalogs.named("libs")
 
 subprojects {
+    val modidReplace = properties.get("modid") as String
     base {
-        archivesName = modid + "_" + project.name
+        archivesName = if (modidReplace.equals(modid)) {
+            (modid + "_" + project.name.replace("-", "_").lowercase(Locale.ROOT))
+        } else {
+            modidReplace
+        }
     }
     if (project.name.contains("java").not().and(project!=rootProject)) {
         val copyToMerge = tasks.register<Copy>("copyToMerge") {
@@ -83,6 +89,7 @@ subprojects {
                 mappingsVersion = parchmentMappingsVersion
                 minecraftVersion = parchmentMinecraftVersion.replace("{mcVersion}", mcVersion)
             }
+            val dataPath = rootProject.file("src/${project.name}/generated").absolutePath
             runs {
                 register("client") {
                     client()
@@ -104,7 +111,7 @@ subprojects {
                     programArguments.addAll(listOf(
                         "--mod", base.archivesName.get(),
                         "--all",
-                        "--output", file("src/generated/resources/").absolutePath,
+                        "--output", dataPath,
                         "--existing", file("src/main/resources/").absolutePath
                     ))
                     environment("datagen", "true")
@@ -120,17 +127,9 @@ subprojects {
                     sourceSet(sourceSets.main.get())
                 }
             }
-            sourceSets.main {
-                java {
-                    srcDir("build/generated/sources/main/java")
-                }
-                resources {
-                    srcDir("src/generated/resources/")
 
-                }
-            }
 
-            val packageName = "io.github.dovehometeam.dove" + project.name
+            val packageName = "io.github.dovehometeam." + base.archivesName.get().replace("_", "")
             val outputDir = file("build/generated/sources/main/java/${packageName.replace(".", "/")}")
 
             val generateSimpleClasses by tasks.registering {
@@ -261,10 +260,15 @@ subprojects {
             from(rootProject.file("src/main/templates"))
             into("build/generated/sources/modMetadata")
         }
-
         sourceSets.main {
+            java {
+                srcDir("build/generated/sources/main/java")
+                srcDir(rootProject.file("src/${project.name}/java"))
+            }
             resources {
                 srcDir(generateModMetadata)
+                srcDir(rootProject.file("src/${project.name}/generated"))
+                srcDir(rootProject.file("src/${project.name}/resources"))
             }
         }
         neoForge.ideSyncTask(generateModMetadata)

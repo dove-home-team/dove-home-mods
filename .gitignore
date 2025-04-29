@@ -3,6 +3,7 @@
 !src/**/build/
 
 **/runs/
+**/run/
 **/.xcodemap/
 
 # Ignore Gradle GUI config
