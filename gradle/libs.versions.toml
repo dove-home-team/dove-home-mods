@@ -1,7 +1,10 @@
 [versions]
 mod-dev-gradle-version = "2.0.78"
+lombok-version = "1.18.38"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
-
+lombok={group= "org.projectlombok", name = "lombok", version.ref="lombok-version"}
 [bundles]
+all_compileOnly=["lombok"]
+all_ap=["lombok"]

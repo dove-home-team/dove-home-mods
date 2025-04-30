@@ -1,22 +1,21 @@
 package io.github.dovehometeam.mysticsadlibitum.common.items;
 
 import io.github.dovehometeam.mysticsadlibitum.common.init.ModComponents;
+import io.github.dovehometeam.mysticsadlibitum.common.java.records.NoitaWandProperties;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,62 +25,39 @@ import java.util.List;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class WandItem extends Item {
-    public final float min_cast_delay, max_cast_delay;
-    public final float min_rechrg_time, max_rechrg_time;
-    public final int min_max_mana,max_mana;
-    public final int min_mana_chg_spd, max_mana_chg_spd;
-    public final int min_capacity, max_capacity;
     public WandItem(
-            Properties properties,
-            boolean shuffle,
-            int spells_cast,
-            float min_cast_delay, float max_cast_delay,
-            float min_rechrg_time, float max_rechrg_time,
-            int min_max_mana, int max_mana,
-            int min_mana_chg_spd, int max_mana_chg_spd,
-            int min_capacity, int max_capacity
+            Properties properties
 
     ) {
         super(properties
-                .component(ModComponents.SHUFFLE, shuffle)
-                .component(ModComponents.SPELLS_CAST, spells_cast)
-        );
-        this.min_cast_delay = min_cast_delay;
-        this.max_cast_delay = max_cast_delay;
-        this.min_rechrg_time = min_rechrg_time;
-        this.max_rechrg_time = max_rechrg_time;
-        this.min_max_mana = min_max_mana;
-        this.max_mana = max_mana;
-        this.min_mana_chg_spd = min_mana_chg_spd;
-        this.max_mana_chg_spd = max_mana_chg_spd;
-        this.min_capacity = min_capacity;
-        this.max_capacity = max_capacity;
+                .component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+    }
+
+    @Override
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.BOW;
+    }
+
+    @Override
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
+        return 72000;
     }
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         super.inventoryTick(stack, level, entity, slotId, isSelected);
-        if (!stack.has(ModComponents.CAST_DELAY)) {
-            stack.set(ModComponents.CAST_DELAY, Mth.nextFloat(entity.getRandom(), min_cast_delay, max_cast_delay));
-        }
-        if (!stack.has(ModComponents.RECHRG_TIME)) {
-            stack.set(ModComponents.RECHRG_TIME, Mth.nextFloat(entity.getRandom(), min_rechrg_time, max_rechrg_time));
-        }
-        if (!stack.has(ModComponents.MANA_MAX)) {
-            stack.set(ModComponents.MANA_MAX, Mth.nextInt(entity.getRandom(), min_max_mana, max_mana));
-            stack.set(ModComponents.MANA, 0);
-        }
-        if (!stack.has(ModComponents.MANA_CHG_SPD)) {
-            stack.set(ModComponents.MANA_CHG_SPD, Mth.nextInt(entity.getRandom(), min_mana_chg_spd, max_mana_chg_spd));
-        }
-        if (!stack.has(DataComponents.CONTAINER)) {
-            stack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(NonNullList.withSize(Mth.nextInt(entity.getRandom(), min_capacity, max_capacity), ItemStack.EMPTY)));
-        }
+
+    }
+
+    @Override
+    public void releaseUsing(ItemStack stack, Level level, LivingEntity livingEntity, int timeCharged) {
+        super.releaseUsing(stack, level, livingEntity, timeCharged);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag flag) {
         super.appendHoverText(stack, context, components, flag);
+        NoitaWandProperties noitaBase = stack.getOrDefault(ModComponents.NOITA_BASE, NoitaWandProperties.DEFAULT);
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.shuffle.tooltip"))
                 .append(String.valueOf(stack.getOrDefault(ModComponents.SHUFFLE, false))));
@@ -90,18 +66,18 @@ public class WandItem extends Item {
                 .append(String.valueOf(stack.getOrDefault(ModComponents.SPELLS_CAST, 1))));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.cast.delay.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(ModComponents.CAST_DELAY, min_cast_delay))));
+                .append(String.valueOf(noitaBase.castDelay())));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.rechrg.time.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(ModComponents.RECHRG_TIME, min_rechrg_time))));
+                .append(String.valueOf(noitaBase.rechargeTime())));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.mana.tooltip"))
-                .append("%s/%s".formatted(stack.getOrDefault(ModComponents.MANA, 0), stack.getOrDefault(ModComponents.MANA_MAX, min_max_mana))));
+                .append("%s/%s".formatted(noitaBase.mana(), noitaBase.maxMana())));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.mana_chg.spd.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(ModComponents.MANA_CHG_SPD, min_mana_chg_spd))));
+                .append(String.valueOf(noitaBase.manaChargeSpeed())));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.capacity.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).getSlots())));
+                .append(String.valueOf(noitaBase.capacity())));
     }
 }

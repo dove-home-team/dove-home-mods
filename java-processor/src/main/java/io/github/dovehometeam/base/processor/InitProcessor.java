@@ -104,7 +104,6 @@ public class InitProcessor extends AbstractProcessor {
                         addListenerAccess,
                         List.of(reference)
                 );
-
             } else {
                 JCTree.JCVariableDecl first = eventMethod.params.getFirst();
                 JCTree.JCVariableDecl lambdaParam = maker.VarDef(
@@ -113,7 +112,6 @@ public class InitProcessor extends AbstractProcessor {
                         first.vartype,
                         null
                 );
-                System.out.println(maker.Ident(first.name));
                 ListBuffer<JCTree.JCExpression> expressions = ListBuffer.of(maker.Ident(first.name));
                 for (int i = 1; i < eventMethod.params.size(); i++) {
                     JCTree.JCVariableDecl arg = eventMethod.params.get(i);
@@ -142,10 +140,11 @@ public class InitProcessor extends AbstractProcessor {
                 }
                 JCTree.JCMethodInvocation call = maker.Apply(
                         List.nil(),
-                        maker.Ident(eventMethod.name),
+                        maker.QualIdent(eventMethod.sym),
                         expressions.toList()
                 );
                 JCTree.JCBlock lambdaBody = maker.Block(0, List.of(maker.Exec(call)));
+
                 JCTree.JCLambda lambda = maker.Lambda(
                         List.of(lambdaParam),
                         lambdaBody
@@ -155,9 +154,9 @@ public class InitProcessor extends AbstractProcessor {
                         addListenerAccess,
                         List.of(lambda)
                 );
+
             }
             JCTree.JCStatement state = maker.Exec(addListenerCall);
-
             List<JCTree.JCStatement> oldStatements = entryPoint.body.stats;
             List<JCTree.JCStatement> newStatements = oldStatements != null ?
                     List.of(state).prependList(oldStatements) :
