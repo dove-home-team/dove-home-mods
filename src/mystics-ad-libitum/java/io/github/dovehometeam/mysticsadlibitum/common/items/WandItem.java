@@ -1,6 +1,7 @@
 package io.github.dovehometeam.mysticsadlibitum.common.items;
 
 import io.github.dovehometeam.mysticsadlibitum.common.init.ModComponents;
+import io.github.dovehometeam.mysticsadlibitum.common.java.enums.Spell;
 import io.github.dovehometeam.mysticsadlibitum.common.java.records.NoitaWandProperties;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.component.DataComponents;
@@ -60,10 +61,11 @@ public class WandItem extends Item {
         NoitaWandProperties noitaBase = stack.getOrDefault(ModComponents.NOITA_BASE, NoitaWandProperties.DEFAULT);
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.shuffle.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(ModComponents.SHUFFLE, false))));
+                .append(noitaBase.shuffle() ? Component.translatable("mystics.ad.libitum.shuffle.yes")
+                        : Component.translatable("mystics.ad.libitum.shuffle.no")));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.spells.cast.tooltip"))
-                .append(String.valueOf(stack.getOrDefault(ModComponents.SPELLS_CAST, 1))));
+                .append(String.valueOf(noitaBase.spells_cast())));
         components.add(Component.empty()
                 .append(Component.translatable("mystics.ad.libitum.cast.delay.tooltip"))
                 .append(String.valueOf(noitaBase.castDelay())));

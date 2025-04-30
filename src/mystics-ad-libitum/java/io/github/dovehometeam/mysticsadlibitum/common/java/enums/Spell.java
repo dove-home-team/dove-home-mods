@@ -7,6 +7,7 @@ import io.github.dovehometeam.mysticsadlibitum.Const;
 import io.github.dovehometeam.mysticsadlibitum.common.java.interfaces.ISpell;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 
 /**
@@ -24,6 +25,10 @@ public enum Spell {
 
     public String i18n() {
         return Const.MODID + "spell." + name().toLowerCase();
+    }
+
+    public Component translate() {
+        return Component.translatable(i18n());
     }
 
 

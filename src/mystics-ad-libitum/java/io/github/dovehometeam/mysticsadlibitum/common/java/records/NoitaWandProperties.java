@@ -20,7 +20,8 @@ public record NoitaWandProperties(
         float rechargeTime,//充能延迟
         int manaChargeSpeed,//法力充能速度
         double spread,
-        double speed
+        double speed,
+        int spells_cast
 ) {
     public static final NoitaWandProperties DEFAULT = NoitaWandProperties.builder().build();
     public static class NoitaWandPropertiesCodec extends CodecHandle<NoitaWandProperties> {
@@ -35,7 +36,8 @@ public record NoitaWandProperties(
                         Codec.FLOAT.fieldOf("rechargeTime").forGetter(p -> p.rechargeTime),
                         Codec.INT.fieldOf("manaChargeSpeed").forGetter(p -> p.manaChargeSpeed),
                         Codec.DOUBLE.fieldOf("spread").forGetter(p -> p.spread),
-                        Codec.DOUBLE.fieldOf("speed").forGetter(p -> p.speed)
+                        Codec.DOUBLE.fieldOf("speed").forGetter(p -> p.speed),
+                        Codec.INT.fieldOf("spells_cast").forGetter(p -> p.spells_cast)
                 ).apply(instance, NoitaWandProperties::new));
         @Override
         protected NoitaWandProperties decode(ByteBuf byteBuf) {
@@ -48,7 +50,8 @@ public record NoitaWandProperties(
                     byteBuf.readFloat(),
                     byteBuf.readInt(),
                     byteBuf.readDouble(),
-                    byteBuf.readDouble()
+                    byteBuf.readDouble(),
+                    byteBuf.readInt()
             );
         }
 
@@ -63,6 +66,7 @@ public record NoitaWandProperties(
             o.writeInt(noitaWandProperties.manaChargeSpeed);
             o.writeDouble(noitaWandProperties.spread);
             o.writeDouble(noitaWandProperties.speed);
+            o.writeInt(noitaWandProperties.spells_cast);
         }
 
         @Override

@@ -1,11 +1,14 @@
 {
-  "item.mystics_ad_libitum.started_bomb_wand": "Started Bomb Wand",
-  "item.mystics_ad_libitum.started_wand": "Started Wand",
+  "item.mystics_ad_libitum.spell_runestone": "Spell Runestone",
+  "item.mystics_ad_libitum.wand": "Wand",
   "mystics.ad.libitum.capacity.tooltip": "Capacity: ",
   "mystics.ad.libitum.cast.delay.tooltip": "Cast Delay: ",
   "mystics.ad.libitum.mana.tooltip": "MANA/MANA Max: ",
   "mystics.ad.libitum.mana_chg.spd.tooltip": "Mana chg. Spd: ",
   "mystics.ad.libitum.rechrg.time.tooltip": "Rechrg. Time: ",
+  "mystics.ad.libitum.shuffle.no": "NO",
   "mystics.ad.libitum.shuffle.tooltip": "Shuffle: ",
-  "mystics.ad.libitum.spells.cast.tooltip": "Spells/Cast: "
+  "mystics.ad.libitum.shuffle.yes": "YES",
+  "mystics.ad.libitum.spells.cast.tooltip": "Spells/Cast: ",
+  "mystics_ad_libitumspell.base": "base"
 }

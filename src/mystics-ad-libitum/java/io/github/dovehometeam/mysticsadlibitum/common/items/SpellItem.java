@@ -26,7 +26,7 @@ public class SpellItem extends Item {
         return Component.empty()
                 .append(super.getName(stack))
                 .append("[")
-                .append(Component.translatable(stack.getOrDefault(ModComponents.SPELL, Spell.BASE).i18n()))
+                .append(stack.getOrDefault(ModComponents.SPELL, Spell.BASE).translate())
                 .append("]");
     }
 }

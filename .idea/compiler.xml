@@ -34,8 +34,8 @@
           <entry name="$PROJECT_DIR$/java-annotation/build/libs/dove_java_annotation.jar" />
         </processorPath>
         <module name="dove.coremod.main" />
+        <module name="dove.dweomercraft.main" />
         <module name="dove.lib.main" />
-        <module name="dove.mystics-ad-libitum.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />

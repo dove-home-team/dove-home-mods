@@ -10,10 +10,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/coremod" />
+            <option value="$PROJECT_DIR$/dweomercraft" />
             <option value="$PROJECT_DIR$/java-annotation" />
             <option value="$PROJECT_DIR$/java-processor" />
             <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/mystics-ad-libitum" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="true" />

@@ -16,6 +16,8 @@ import java.util.function.Consumer;
 public enum ModLanguage {
     EN_US(lang -> {
         lang.add("mystics.ad.libitum.shuffle.tooltip", "Shuffle: ");
+        lang.add("mystics.ad.libitum.shuffle.yes", "YES");
+        lang.add("mystics.ad.libitum.shuffle.no", "NO");
         lang.add("mystics.ad.libitum.spells.cast.tooltip", "Spells/Cast: ");
         lang.add("mystics.ad.libitum.cast.delay.tooltip", "Cast Delay: ");
         lang.add("mystics.ad.libitum.rechrg.time.tooltip", "Rechrg. Time: ");
@@ -28,6 +30,8 @@ public enum ModLanguage {
     }),
     ZH_CN(lang -> {
         lang.add("mystics.ad.libitum.shuffle.tooltip", "乱序: ");
+        lang.add("mystics.ad.libitum.shuffle.yes", "是");
+        lang.add("mystics.ad.libitum.shuffle.no", "否");
         lang.add("mystics.ad.libitum.spells.cast.tooltip", "法术数/释放: ");
         lang.add("mystics.ad.libitum.cast.delay.tooltip", "施法延迟: ");
         lang.add("mystics.ad.libitum.rechrg.time.tooltip", "充能延迟: ");

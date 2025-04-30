@@ -1,11 +1,14 @@
 {
-  "item.mystics_ad_libitum.started_bomb_wand": "初始炸弹杖",
-  "item.mystics_ad_libitum.started_wand": "初始魔杖",
+  "item.mystics_ad_libitum.spell_runestone": "符石",
+  "item.mystics_ad_libitum.wand": "魔杖",
   "mystics.ad.libitum.capacity.tooltip": "容量: ",
   "mystics.ad.libitum.cast.delay.tooltip": "施法延迟: ",
   "mystics.ad.libitum.mana.tooltip": "法力/最大法力值: ",
   "mystics.ad.libitum.mana_chg.spd.tooltip": "法力充能速度: ",
   "mystics.ad.libitum.rechrg.time.tooltip": "充能延迟: ",
+  "mystics.ad.libitum.shuffle.no": "否",
   "mystics.ad.libitum.shuffle.tooltip": "乱序: ",
-  "mystics.ad.libitum.spells.cast.tooltip": "法术数/释放: "
+  "mystics.ad.libitum.shuffle.yes": "是",
+  "mystics.ad.libitum.spells.cast.tooltip": "法术数/释放: ",
+  "mystics_ad_libitumspell.base": "基础"
 }

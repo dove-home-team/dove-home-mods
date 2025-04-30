@@ -65,7 +65,13 @@ allprojects {
 val lib = versionCatalogs.named("libs")
 
 subprojects {
-    val modidReplace = properties.get("modid") as String
+
+    var modidReplace: String
+    try {
+        modidReplace = properties.getOrDefault("modid", modid).toString()
+    } catch (e: Exception) {
+        modidReplace = modid
+    }
     base {
         archivesName = if (modidReplace.equals(modid)) {
             (modid + "_" + project.name.replace("-", "_").lowercase(Locale.ROOT))
