@@ -3,11 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dweomercraft/dove.dweomercraft.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dweomercraft/dove.dweomercraft.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/dove.lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/dove.lib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.iml" filepath="$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mystics-ad-libitum/dove.mystics-ad-libitum.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pack/dove.pack.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pack/dove.pack.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pack/dove.pack.test.iml" filepath="$PROJECT_DIR$/.idea/modules/pack/dove.pack.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/staff/dove.staff.iml" filepath="$PROJECT_DIR$/.idea/modules/staff/dove.staff.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/staff/dove.staff.main.iml" filepath="$PROJECT_DIR$/.idea/modules/staff/dove.staff.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/staff/dove.staff.test.iml" filepath="$PROJECT_DIR$/.idea/modules/staff/dove.staff.test.iml" />
     </modules>
   </component>
