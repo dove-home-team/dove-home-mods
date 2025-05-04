@@ -1,5 +1,5 @@
 [versions]
-mod-dev-gradle-version = "2.0.78"
+mod-dev-gradle-version = "2.0.86"
 lombok-version = "1.18.38"
 flywheel-version = "1.0.0-9"
 vanillin-version = "1.0.0-beta-9"
@@ -19,10 +19,14 @@ butchercraft-version="2.6.3"
 xnet-version="1.21-7.0.4"
 mcjtylib-version="1.21-9.0.8"
 pipez-version="neoforge-1.21.1-1.2.19"
+jade-version="15.10.0+neoforge"
+jade-addons-version="6.1.0+neoforge"
 rftools-base-version="1.21-6.0.7"
 immersive-engineering-version="12.2.0-187"
 mmlib-version="1.2.11-1.21.1"
 pneumaticcraft-repressurized-version="8.2.12+mc1.21.1"
+mekanism-version="1.21.1-10.7.14.79"
+kubejs-version="2101.7.2-build.233"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -46,10 +50,14 @@ butchercraft={group="maven.modrinth", name="butchercraft", version.ref="butcherc
 xnet={group="maven.modrinth", name="xnet", version.ref="xnet-version"}
 mcjtylib={group="maven.modrinth", name="mcjtylib", version.ref="mcjtylib-version"}
 pipez={group="maven.modrinth", name="pipez", version.ref="pipez-version"}
+jade={group="maven.modrinth", name="jade", version.ref="jade-version"}
+jade-addons={group="maven.modrinth", name="jade-addons-forge", version.ref="jade-addons-version"}
 rftools-base={group="maven.modrinth", name="rftools-base", version.ref="rftools-base-version"}
 immersive-engineering={group="maven.modrinth", name="immersiveengineering", version.ref="immersive-engineering-version"}
 mysterious-mountain-lib={group="cn.mcmod_mmf.mysterious_mountain_lib", name="MMLib", version.ref="mmlib-version"}
 pneumaticcraft-repressurized={group="me.desht.pneumaticcraft", name="pneumaticcraft-repressurized",version.ref="pneumaticcraft-repressurized-version"}
+mekanism={group="mekanism", name="Mekanism", version.ref="mekanism-version"}
+kubejs={group="dev.latvian.mods", name="kubejs-neoforge", version.ref="kubejs-version"}
 [bundles]
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
@@ -73,6 +81,10 @@ dove_pack_prepose=[
 	"xnet",
 	"mcjtylib",
 	"rftools-base",
-	"pipez"
+	"pipez",
+	"mekanism",
+	"jade",
+	"jade-addons"
 ]
 dove_pack_prepose_transitive_false=["create"]
+dove_pack_api=["kubejs"]

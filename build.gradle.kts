@@ -49,17 +49,40 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        maven("https://jitpack.io") {
+            content {
+                includeGroup("com.github.rtyley")
+            }
+        }
+        maven("https://maven.neoforged.net/releases")
+        maven("https://maven.parchmentmc.org")
         maven("https://maven.dragons.plus/releases") // Ponder, Flywheel
         maven("https://maven.createmod.net") // Ponder, Flywheel
         maven("https://mvn.devos.one/snapshots") // Registrate
         maven("https://maven.blamejared.com") // JEI
         maven("https://maven.theillusivec4.top/") // Curios API
-        maven("https://www.cursemaven.com")
-        maven("https://api.modrinth.com/maven")
+        maven("https://www.cursemaven.com") {
+            content {
+                includeGroup("curse.maven")
+            }
+        }
+        maven("https://api.modrinth.com/maven") {
+            content {
+                includeGroup("maven.modrinth")
+            }
+        }
         maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven") // NeoForge config api port, needed by ponder
         maven("https://maven.fallenbreath.me/releases") // Conditional Mixin
         maven("https://raw.github.com/0999312/MMMaven/main/repository")
         maven("https://modmaven.dev/artifactory/local-releases/")
+        maven("https://modmaven.dev/")
+        maven("https://maven.architectury.dev/")
+        maven("https://maven.latvian.dev/releases") {
+            content {
+                includeGroup("dev.latvian.mods")
+                includeGroup("dev.latvian.apps")
+            }
+        }
     }
     idea {
         module {
@@ -221,6 +244,16 @@ subprojects {
             }, {
                 logger.error("Cannot find bundle: ${base.archivesName.get()}_runtimeOnly_transitive_false")
             })
+            lib.findBundle(base.archivesName.get() + "_api").ifPresentOrElse({
+                api(it)
+            }, {
+                logger.error("Cannot find bundle: ${base.archivesName.get()}_api")
+            })
+            lib.findBundle(base.archivesName.get() + "_api_transitive_false").ifPresentOrElse({
+                api(it) {isTransitive = false }
+            }, {
+                logger.error("Cannot find bundle: ${base.archivesName.get()}_api_transitive_false")
+            })
 
 
             lib.findBundle(base.archivesName.get() + "_linkage").ifPresentOrElse({
@@ -279,6 +312,16 @@ subprojects {
                 runtimeOnly(it) {isTransitive = false }
             }, {
                 logger.error("Cannot find bundle: all_runtimeOnly_transitive_false")
+            })
+            lib.findBundle("all_api").ifPresentOrElse({
+                api(it)
+            }, {
+                logger.error("Cannot find bundle: all_api")
+            })
+            lib.findBundle("all_api_transitive_false").ifPresentOrElse({
+                api(it) {isTransitive = false }
+            }, {
+                logger.error("Cannot find bundle: all_api_transitive_false")
             })
 
             lib.findBundle("all_linkage").ifPresentOrElse({
