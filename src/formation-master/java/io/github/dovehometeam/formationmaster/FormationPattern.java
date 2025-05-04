@@ -15,16 +15,9 @@ import java.util.function.Supplier;
 
 public enum FormationPattern {
     BASE(9, () -> Blocks.DEAD_BUSH, () -> Blocks.SAND,
-            "  AAAAA  ",
-            " A     A ",
-            "A       A",
-            "A       A",
-            "A   B   A",
-            "A       A",
-            "A       A",
-            " A     A ",
-            "  AAAAA  ");
+            Circle._9x9_c);
     public final BlockPattern build;
+
     FormationPattern(int diameter, Supplier<Block> center, Supplier<Block> edge, String... patterns) {
         build = BlockPatternBuilder
                 .start()
