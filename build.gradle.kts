@@ -58,6 +58,8 @@ allprojects {
         maven("https://api.modrinth.com/maven")
         maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven") // NeoForge config api port, needed by ponder
         maven("https://maven.fallenbreath.me/releases") // Conditional Mixin
+        maven("https://raw.github.com/0999312/MMMaven/main/repository")
+        maven("https://modmaven.dev/artifactory/local-releases/")
     }
     idea {
         module {

@@ -12,6 +12,17 @@ create-rustic-structures-version="6372212"
 delight-version="1.21.1-1.2.7"
 my-nethers-delight-version="1.8"
 ends-delight-version="2.5.1+neoforge.1.21.1"
+corn-delight-version="1.1.4-1.21.1"
+cultural-delights-version="0.17.6"
+pineapple-delight-version="1.0.4"
+butchercraft-version="2.6.3"
+xnet-version="1.21-7.0.4"
+mcjtylib-version="1.21-9.0.8"
+pipez-version="neoforge-1.21.1-1.2.19"
+rftools-base-version="1.21-6.0.7"
+immersive-engineering-version="12.2.0-187"
+mmlib-version="1.2.11-1.21.1"
+pneumaticcraft-repressurized-version="8.2.12+mc1.21.1"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -28,6 +39,17 @@ create-rustic-structures={group="curse.maven", name="create-rustic-structures-12
 farmers-delight={group="maven.modrinth", name="farmers-delight", version.ref="delight-version"}
 my-nethers-delight={group="maven.modrinth", name="my-nethers-delight", version.ref="my-nethers-delight-version"}
 ends-delight={group="maven.modrinth", name="ends-delight", version.ref="ends-delight-version"}
+corn-delight={group="maven.modrinth", name="corn-delight", version.ref="corn-delight-version"}
+cultural-delights={group="maven.modrinth", name="cultural-delights", version.ref="cultural-delights-version"}
+pineapple-delight={group="maven.modrinth", name="pineapple-delight", version.ref="pineapple-delight-version"}
+butchercraft={group="maven.modrinth", name="butchercraft", version.ref="butchercraft-version"}
+xnet={group="maven.modrinth", name="xnet", version.ref="xnet-version"}
+mcjtylib={group="maven.modrinth", name="mcjtylib", version.ref="mcjtylib-version"}
+pipez={group="maven.modrinth", name="pipez", version.ref="pipez-version"}
+rftools-base={group="maven.modrinth", name="rftools-base", version.ref="rftools-base-version"}
+immersive-engineering={group="maven.modrinth", name="immersiveengineering", version.ref="immersive-engineering-version"}
+mysterious-mountain-lib={group="cn.mcmod_mmf.mysterious_mountain_lib", name="MMLib", version.ref="mmlib-version"}
+pneumaticcraft-repressurized={group="me.desht.pneumaticcraft", name="pneumaticcraft-repressurized",version.ref="pneumaticcraft-repressurized-version"}
 [bundles]
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
@@ -40,6 +62,17 @@ dove_pack_prepose=[
     "create-rustic-structures",
     "farmers-delight",
     "my-nethers-delight",
-    "ends-delight"
+    "ends-delight",
+	"corn-delight",
+	"mysterious-mountain-lib",
+	"cultural-delights",
+	"butchercraft",
+	"pineapple-delight",
+	"pneumaticcraft-repressurized",
+	"immersive-engineering",
+	"xnet",
+	"mcjtylib",
+	"rftools-base",
+	"pipez"
 ]
 dove_pack_prepose_transitive_false=["create"]
