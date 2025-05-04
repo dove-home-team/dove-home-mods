@@ -13,6 +13,7 @@
         <module name="dove.pack.main" />
         <module name="dove.dweomercraft.main" />
         <module name="dove.lib.main" />
+        <module name="dove.formation-master.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />

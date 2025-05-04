@@ -4,5 +4,26 @@
     <content url="file://$MODULE_DIR$/../../../pack/build/generated/sources/annotationProcessor/java/main">
       <sourceFolder url="file://$MODULE_DIR$/../../../pack/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
     </content>
+    <content url="file://$MODULE_DIR$/../../../src/pack" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/../../../src/pack/resources" type="java-resource" />
+    </content>
+  </component>
+  <component name="FacetManager">
+    <facet type="minecraft" name="Minecraft">
+      <configuration>
+        <autoDetectTypes>
+          <platformType>ARCHITECTURY</platformType>
+          <platformType>MIXIN</platformType>
+          <platformType>NEOFORGE</platformType>
+          <platformType>MCP</platformType>
+        </autoDetectTypes>
+        <projectReimportVersion>1</projectReimportVersion>
+      </configuration>
+    </facet>
+  </component>
+  <component name="McpModuleSettings">
+    <option name="minecraftVersion" value="1.21.1" />
+    <option name="platformVersion" value="21.1.169" />
+    <option name="srgType" value="TSRG" />
   </component>
 </module>

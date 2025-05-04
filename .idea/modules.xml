@@ -4,9 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/coremod/dove.coremod.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dweomercraft/dove.dweomercraft.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dweomercraft/dove.dweomercraft.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/formation-master/dove.formation-master.main.iml" filepath="$PROJECT_DIR$/.idea/modules/formation-master/dove.formation-master.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java-processor/dove.java-processor.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/dove.lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/dove.lib.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pack/dove.pack.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pack/dove.pack.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pack/dove.pack.test.iml" filepath="$PROJECT_DIR$/.idea/modules/pack/dove.pack.test.iml" />
     </modules>
   </component>
 </project>

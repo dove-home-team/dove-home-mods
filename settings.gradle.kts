@@ -10,7 +10,7 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention").version("0.9.0")
 }
 
-include("lib","coremod", /*"staff",*/ "dweomercraft", "pack")
+include("lib","coremod", /*"staff",*/ "dweomercraft", "formation-master", "pack")
 include("java-annotation", "java-processor")
 
 
