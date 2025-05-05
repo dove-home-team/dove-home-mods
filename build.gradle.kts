@@ -47,6 +47,8 @@ allprojects {
         group = modGroupId
     }
     repositories {
+        //www.curseforge.com/api/v1/mods/projectId/files/fileId/download
+        //mediafilez.forgecdn.net/files/top_start4/top_other_num/downloadFileName
         mavenLocal()
         mavenCentral()
         maven("https://jitpack.io") {
