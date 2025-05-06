@@ -3,6 +3,7 @@
   "package": "io.github.dovehometeam.dovepack.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BucketItemMixin"
   ],
   "minVersion": "0.8"
 }
