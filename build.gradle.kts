@@ -51,9 +51,32 @@ allprojects {
         //mediafilez.forgecdn.net/files/top_start4/top_other_num/downloadFileName
         mavenLocal()
         mavenCentral()
+        maven("https://maven.minecraftforge.net/") {
+            content {
+                includeGroup("com.github.glitchfiend")
+            }
+        }
+        maven("https://maven.shedaniel.me")
+        maven("https://maven.crystaelix.com/releases/") {
+            content {
+                includeGroup("thelm.packagedmekemicals")
+                includeGroup("thelm.packagedauto")
+                includeGroup("thelm.packagedexcrafting")
+            }
+        }
         maven("https://jitpack.io") {
             content {
                 includeGroup("com.github.rtyley")
+            }
+        }
+        maven("https://beta.cursemaven.com") {
+            content {
+                includeGroup("curse.maven")
+            }
+        }
+        maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/") {
+            content {
+                includeGroup("software.bernie.geckolib")
             }
         }
         maven("https://maven.neoforged.net/releases")
@@ -63,11 +86,7 @@ allprojects {
         maven("https://mvn.devos.one/snapshots") // Registrate
         maven("https://maven.blamejared.com") // JEI
         maven("https://maven.theillusivec4.top/") // Curios API
-        maven("https://www.cursemaven.com") {
-            content {
-                includeGroup("curse.maven")
-            }
-        }
+
         maven("https://api.modrinth.com/maven") {
             content {
                 includeGroup("maven.modrinth")
@@ -77,7 +96,12 @@ allprojects {
         maven("https://maven.fallenbreath.me/releases") // Conditional Mixin
         maven("https://raw.github.com/0999312/MMMaven/main/repository")
         maven("https://modmaven.dev/artifactory/local-releases/")
-        maven("https://modmaven.dev/")
+        maven("https://maven.blakesmods.com/releases")
+        maven("https://modmaven.dev/") {
+            content {
+                includeGroup("com.alexthw.ars_elemental")
+            }
+        }
         maven("https://maven.architectury.dev/")
         maven("https://maven.latvian.dev/releases") {
             content {
@@ -222,8 +246,21 @@ subprojects {
 
             }
         }
+        val libsDir = rootProject.file("libs/${project.name}")
+        libsDir.mkdirs()
+        repositories {
+            flatDir {
+                dir(libsDir.absolutePath)
+            }
+        }
 
         dependencies {
+
+            implementation(
+                fileTree(baseDir = libsDir.absolutePath) {
+                    include("*.jar")
+                }
+            )
             lib.findBundle(base.archivesName.get() + "_compileOnly").ifPresentOrElse({
                 compileOnly(it)
             }, {

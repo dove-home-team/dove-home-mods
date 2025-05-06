@@ -30,8 +30,21 @@ kubejs-version="2101.7.2-build.233"
 more-mekanism-processing-version="6.4"
 mekanism-advancedgenerators-version="6488742"
 ars-creo-version="6279953"
-mekanism-extra-version="1.21.1-1.2.0"
+mekanism-extra-version="1.21.1-1.2.1"
 ars-nouveau-version="5.8.2.1096"
+ars-elemental-version="0.7.3.0.68"
+ars-energistique-version="2.1.1-beta"
+powah-version="6.2.4-neoforge"
+packaged-mekemicals-version="2.0.0.3"
+packaged-auto-version="4.0.4.10"
+packaged-ex-crafting-version="4.0.0.4"
+cloth-config-version="15.0.127"
+appliedenergistics-version="19.2.9"
+guideme-version="21.1.7"
+extended-crafting-version="1.21.1-7.0.5"
+cucumber-version="1.21.1-8.0.12"
+patchouli-version="1.21-88-NEOFORGE"
+botania-version="449-SNAPSHOT"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -40,6 +53,7 @@ create-rustic-structures={group="curse.maven", name="create-rustic-structures-12
 mekanism-advancedgenerators={group="curse.maven", name="mekanism-advancedgenerators-844063", version.ref="mekanism-advancedgenerators-version"}
 ars-creo={group="curse.maven", name="ars-creo-575698", version.ref="ars-creo-version"}
 # modrinth maven
+more-mekanism-processing={group="maven.modrinth", name="more-mekanism-processing", version.ref="more-mekanism-processing-version"}
 farmers-delight={group="maven.modrinth", name="farmers-delight", version.ref="delight-version"}
 my-nethers-delight={group="maven.modrinth", name="my-nethers-delight", version.ref="my-nethers-delight-version"}
 ends-delight={group="maven.modrinth", name="ends-delight", version.ref="ends-delight-version"}
@@ -55,16 +69,40 @@ jade-addons={group="maven.modrinth", name="jade-addons-forge", version.ref="jade
 rftools-base={group="maven.modrinth", name="rftools-base", version.ref="rftools-base-version"}
 immersive-engineering={group="maven.modrinth", name="immersiveengineering", version.ref="immersive-engineering-version"}
 mekanism-extra={group="maven.modrinth", name="mekanism_extra", version.ref="mekanism-extra-version"}
+ars-energistique={group="maven.modrinth", name="ars-energistique", version.ref="ars-energistique-version"}
+powah={group="maven.modrinth", name="powah", version.ref="powah-version"}
 # engine-room mod
 flywheel-api={group="dev.engine-room.flywheel", name = "flywheel-neoforge-api-1.21.1", version.ref="flywheel-version"}
 flywheel={group="dev.engine-room.flywheel", name = "flywheel-neoforge-1.21.1", version.ref="flywheel-version"}
 vanillin={group="dev.engine-room.vanillin", name="vanillin-neoforge-1.21.1", version.ref="vanillin-version"}
 
+#modmaven
+ars-elemental={group="com.alexthw.ars_elemental", name="ars_elemental-1.21.1", version.ref="ars-elemental-version"}
+# maven center
 lombok={group= "org.projectlombok", name = "lombok", version.ref="lombok-version"}
+appliedenergistics={group="org.appliedenergistics", name="appliedenergistics2", version.ref="appliedenergistics-version"}
+guideme={group="org.appliedenergistics", name="guideme", version.ref="guideme-version"}
+
+# crystaelix
+packaged-mekemicals={group="thelm.packagedmekemicals", name="PackagedMekemicals-1.21.1", version.ref="packaged-mekemicals-version"}
+packaged-auto={group="thelm.packagedauto", name="PackagedAuto-1.21.1", version.ref="packaged-auto-version"}
+packaged-ex-crafting={group="thelm.packagedexcrafting", name="PackagedExCrafting-1.21.1", version.ref="packaged-ex-crafting-version"}
+
+#shedaniel
+cloth-config={group="me.shedaniel.cloth", name="cloth-config-neoforge",version.ref="cloth-config-version"}
+
+#blakes mods
+extended-crafting={group="com.blakebr0.extendedcrafting", name="ExtendedCrafting",version.ref="extended-crafting-version"}
+cucumber={group="com.blakebr0.cucumber", name="Cucumber",version.ref="cucumber-version"}
+
+# blamejared maven
+patchouli={group="vazkii.patchouli", name="Patchouli", version.ref="patchouli-version"}
+botania={group="vazkii.patchouli", name="botania-neoforge-1.21.1", version.ref="botania-version"}
 
 registrate={group="com.tterrag.registrate", name="Registrate", version.ref="registrate-version"}
 ponder={group="net.createmod.ponder", name="Ponder-NeoForge-1.21.1", version.ref="ponder-version"}
 create={group="com.simibubi.create", name="create-1.21.1", version.ref="create-version"}
+
 create-dragons-plus={group="plus.dragons.createdragonsplus", name="create-dragons-plus-1.21.1", version.ref="create-dragons-plus-version"}
 create-enchantment-industry={group="plus.dragons.createenchantmentindustry", name="create-enchantment-industry-1.21.1", version.ref="create-enchantment-industry-version"}
 
@@ -72,7 +110,7 @@ mysterious-mountain-lib={group="cn.mcmod_mmf.mysterious_mountain_lib", name="MML
 pneumaticcraft-repressurized={group="me.desht.pneumaticcraft", name="pneumaticcraft-repressurized",version.ref="pneumaticcraft-repressurized-version"}
 mekanism={group="mekanism", name="Mekanism", version.ref="mekanism-version"}
 kubejs={group="dev.latvian.mods", name="kubejs-neoforge", version.ref="kubejs-version"}
-more-mekanism-processing={group="maven.modrinth", name="more-mekanism-processing", version.ref="more-mekanism-processing-version"}
+
 ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", version.ref="ars-nouveau-version"}
 [bundles]
 all_compileOnly=["lombok"]
@@ -102,7 +140,22 @@ dove_pack_prepose=[
 	"jade",
 	"jade-addons",
 	"mekanism-advancedgenerators",
-	"mekanism-extra"
+	"mekanism-extra",
+	"ars-creo",
+	"ars-nouveau",
+	"ars-elemental",
+	"ars-energistique",
+	"appliedenergistics",
+	"guideme",
+	"powah",
+	"packaged-mekemicals",
+	"packaged-auto",
+	"packaged-ex-crafting",
+	"cloth-config",
+	"extended-crafting",
+	"cucumber",
+	"patchouli",
+	#"botania"
 ]
 dove_pack_prepose_transitive_false=["create"]
 dove_pack_api=["kubejs"]
