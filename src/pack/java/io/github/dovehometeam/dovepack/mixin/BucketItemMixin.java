@@ -37,8 +37,8 @@ public class BucketItemMixin {
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/block/BucketPickup;getPickupSound(Lnet/minecraft/world/level/block/state/BlockState;)Ljava/util/Optional;",
                     shift = At.Shift.AFTER
-            ),
-            cancellable = true)
+            )
+    )
     private void useBucketNull(Level level,
                           Player player,
                           InteractionHand hand,
@@ -50,17 +50,8 @@ public class BucketItemMixin {
         ItemStack itemstack = player.getItemInHand(hand);
         if (blockstate1.is(Blocks.WATER) && itemstack.is(Items.BUCKET)) {
             BlockPos blockpos = blockhitresult.getBlockPos();
-            Pollution pollution = Pollution.onlyGetAndCreate(blockpos, level);
-            float v = pollution.get(blockpos, level);
-            level.gameEvent(player, GameEvent.FLUID_PICKUP, blockpos);
-            pollution.remove(blockpos);
-            ItemStack itemstack3 = pickup.pickupBlock(player, level, blockpos, blockstate1);
-            itemstack3.set(DovePackComponents.POLLUTION, v);
-            ItemStack itemstack2 = ItemUtils.createFilledResult(itemstack, player, itemstack3);
-            if (!level.isClientSide) {
-                CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer)player, itemstack3);
-            }
-            cir.setReturnValue(InteractionResultHolder.sidedSuccess(itemstack2, level.isClientSide()));
+
+
         }
     }
 

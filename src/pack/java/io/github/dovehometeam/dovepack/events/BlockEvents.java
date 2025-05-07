@@ -51,9 +51,7 @@ public class BlockEvents {
             }
             Level level = (Level) event.getLevel();
             BlockPos pos = event.getPos();
-            Pollution pollution = Pollution.onlyGetAndCreate(pos, level);
-            pollution.set(pos, f);
-            level.getChunkAt(pos).setData(DovePackAttachments.POLLUTION, pollution);
+
         }
 
     }

@@ -45,13 +45,27 @@ extended-crafting-version="1.21.1-7.0.5"
 cucumber-version="1.21.1-8.0.12"
 patchouli-version="1.21-88-NEOFORGE"
 botania-version="449-SNAPSHOT"
+flux-networks-version="6089446"
+extended-ae-version="1.21-2.2.6-neoforge"
+ae2wtlib-version="19.2.3"
+ae2things-version="5637783"
+ae2fix-version="0.6.0"
+sophisticated-backpacks-version="1.21.1-3.24.10.1232"
+sophisticated-core-version="1.21.1-1.3.35.968"
+refined-storage-version="6391989"
+extreme-reactors-version="1.21.1-2.4.9"
+glodium-version="5614731"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
 # curse maven
+glodium={group="curse.maven", name="glodium-957920", version.ref="glodium-version"}
+ae2things={group="curse.maven", name="ae2-things-forge-609977", version.ref="ae2things-version"}
 create-rustic-structures={group="curse.maven", name="create-rustic-structures-1232975", version.ref="create-rustic-structures-version"}
 mekanism-advancedgenerators={group="curse.maven", name="mekanism-advancedgenerators-844063", version.ref="mekanism-advancedgenerators-version"}
 ars-creo={group="curse.maven", name="ars-creo-575698", version.ref="ars-creo-version"}
+flux-networks={group="curse.maven", name="flux-networks-248020", version.ref="flux-networks-version"}
+refined-storage={group="curse.maven", name="refined-storage-243076", version.ref="refined-storage-version"}
 # modrinth maven
 more-mekanism-processing={group="maven.modrinth", name="more-mekanism-processing", version.ref="more-mekanism-processing-version"}
 farmers-delight={group="maven.modrinth", name="farmers-delight", version.ref="delight-version"}
@@ -71,6 +85,13 @@ immersive-engineering={group="maven.modrinth", name="immersiveengineering", vers
 mekanism-extra={group="maven.modrinth", name="mekanism_extra", version.ref="mekanism-extra-version"}
 ars-energistique={group="maven.modrinth", name="ars-energistique", version.ref="ars-energistique-version"}
 powah={group="maven.modrinth", name="powah", version.ref="powah-version"}
+extended-ae={group="maven.modrinth", name="extended-ae", version.ref="extended-ae-version"}
+ae2fix={group="maven.modrinth", name="ae2fix", version.ref="ae2fix-version"}
+sophisticated-backpacks={group="maven.modrinth", name="sophisticated-backpacks", version.ref="sophisticated-backpacks-version"}
+sophisticated-core={group="maven.modrinth", name="sophisticated-core", version.ref="sophisticated-core-version"}
+extreme-reactors={group="maven.modrinth", name="extreme-reactors", version.ref="extreme-reactors-version"}
+
+
 # engine-room mod
 flywheel-api={group="dev.engine-room.flywheel", name = "flywheel-neoforge-api-1.21.1", version.ref="flywheel-version"}
 flywheel={group="dev.engine-room.flywheel", name = "flywheel-neoforge-1.21.1", version.ref="flywheel-version"}
@@ -78,6 +99,7 @@ vanillin={group="dev.engine-room.vanillin", name="vanillin-neoforge-1.21.1", ver
 
 #modmaven
 ars-elemental={group="com.alexthw.ars_elemental", name="ars_elemental-1.21.1", version.ref="ars-elemental-version"}
+ae2wtlib={group="de.mari_023", name="ae2wtlib", version.ref="ae2wtlib-version"}
 # maven center
 lombok={group= "org.projectlombok", name = "lombok", version.ref="lombok-version"}
 appliedenergistics={group="org.appliedenergistics", name="appliedenergistics2", version.ref="appliedenergistics-version"}
@@ -99,6 +121,7 @@ cucumber={group="com.blakebr0.cucumber", name="Cucumber",version.ref="cucumber-v
 patchouli={group="vazkii.patchouli", name="Patchouli", version.ref="patchouli-version"}
 botania={group="vazkii.patchouli", name="botania-neoforge-1.21.1", version.ref="botania-version"}
 
+
 registrate={group="com.tterrag.registrate", name="Registrate", version.ref="registrate-version"}
 ponder={group="net.createmod.ponder", name="Ponder-NeoForge-1.21.1", version.ref="ponder-version"}
 create={group="com.simibubi.create", name="create-1.21.1", version.ref="create-version"}
@@ -116,7 +139,7 @@ ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", v
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
 dove_pack_compileOnly=["flywheel-api"]
-dove_pack_runtimeOnly=["flywheel", "vanillin"]
+dove_pack_runtimeOnly=["flywheel", "vanillin", "ae2fix"]
 dove_pack_prepose=[
     "registrate", "ponder",
     "create-dragons-plus",
@@ -155,6 +178,14 @@ dove_pack_prepose=[
 	"extended-crafting",
 	"cucumber",
 	"patchouli",
+	"flux-networks",
+	# "extended-ae",
+	"ae2wtlib",
+	"ae2things",
+	"sophisticated-backpacks",
+	"sophisticated-core",
+	"refined-storage",
+	"glodium",
 	#"botania"
 ]
 dove_pack_prepose_transitive_false=["create"]
