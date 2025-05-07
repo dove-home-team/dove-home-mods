@@ -55,6 +55,11 @@ sophisticated-core-version="1.21.1-1.3.35.968"
 refined-storage-version="6391989"
 extreme-reactors-version="1.21.1-2.4.9"
 glodium-version="5614731"
+silent-gear-version="4.0.20"
+silent-lib-version="10.4.0"
+silents-gems-version="5.0.3"
+unfocused-version="0.1.67-neoforge"
+scriptor-magicae-version="1.4.7-neoforge"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -67,6 +72,11 @@ ars-creo={group="curse.maven", name="ars-creo-575698", version.ref="ars-creo-ver
 flux-networks={group="curse.maven", name="flux-networks-248020", version.ref="flux-networks-version"}
 refined-storage={group="curse.maven", name="refined-storage-243076", version.ref="refined-storage-version"}
 # modrinth maven
+scriptor-magicae={group="maven.modrinth", name="scriptor-magicae", version.ref="scriptor-magicae-version"}
+unfocused={group="maven.modrinth", name="unfocused", version.ref="unfocused-version"}
+silent-lib={group="maven.modrinth", name="silent-lib", version.ref="silent-lib-version"}
+silent-gear={group="maven.modrinth", name="silent-gear", version.ref="silent-gear-version"}
+silents-gems={group="maven.modrinth", name="silents-gems", version.ref="silents-gems-version"}
 more-mekanism-processing={group="maven.modrinth", name="more-mekanism-processing", version.ref="more-mekanism-processing-version"}
 farmers-delight={group="maven.modrinth", name="farmers-delight", version.ref="delight-version"}
 my-nethers-delight={group="maven.modrinth", name="my-nethers-delight", version.ref="my-nethers-delight-version"}
@@ -186,6 +196,11 @@ dove_pack_prepose=[
 	"sophisticated-core",
 	"refined-storage",
 	"glodium",
+	"silent-gear",
+	"silent-lib",
+	"silents-gems",
+	"unfocused",
+	"scriptor-magicae",
 	#"botania"
 ]
 dove_pack_prepose_transitive_false=["create"]
