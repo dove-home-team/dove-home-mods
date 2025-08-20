@@ -1,7 +1,5 @@
 package io.github.dovehometeam.dweomercraft;
 
-import io.github.dovehometeam.base.annotation.entrypoints.GameEntryPoint;
-import io.github.dovehometeam.base.annotation.entrypoints.ModEntryPoint;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -16,7 +14,6 @@ public class Dweomercraft {
         modEventBus(modBus);
     }
 
-    @ModEntryPoint
     public void modEventBus(IEventBus modBus) {
 
     }

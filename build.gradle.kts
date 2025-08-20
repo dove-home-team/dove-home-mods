@@ -1,6 +1,12 @@
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
+import org.gradle.internal.extensions.stdlib.capitalized
+import org.gradle.internal.impldep.org.tomlj.Toml
+import org.gradle.internal.impldep.org.tomlj.internal.TomlParser
 import org.slf4j.event.Level
 import java.time.LocalDateTime
 import java.util.*
+import java.util.jar.JarFile
 
 
 plugins {
@@ -34,6 +40,7 @@ allprojects {
     apply(plugin = "maven-publish")
     apply(plugin = "java-library")
     java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
     if (project.name.contains("java").not() && project != rootProject) {
         apply(plugin = "net.neoforged.moddev")
         version = modVersion
@@ -81,12 +88,14 @@ allprojects {
         }
         maven("https://maven.neoforged.net/releases")
         maven("https://maven.parchmentmc.org")
-        maven("https://maven.dragons.plus/releases") // Ponder, Flywheel
+        maven {
+            url = uri("http://maven.dragons.plus/releases")
+            isAllowInsecureProtocol = true
+        } // Ponder, Flywheel
         maven("https://maven.createmod.net") // Ponder, Flywheel
         maven("https://mvn.devos.one/snapshots") // Registrate
         maven("https://maven.blamejared.com") // JEI
         maven("https://maven.theillusivec4.top/") // Curios API
-
         maven("https://api.modrinth.com/maven") {
             content {
                 includeGroup("maven.modrinth")
@@ -143,6 +152,7 @@ subprojects {
             into("${rootProject.file("build")}/libs")
             from(tasks.jar.get().outputs.files)
         }
+
 
         tasks.build {
             dependsOn(copyToMerge.get())
@@ -398,10 +408,7 @@ subprojects {
                 logger.error("Cannot find bundle: all_ap_transitive_false")
             })
 
-            if (!project.name.contains("java")) {
-                compileOnly(project(":java-annotation"))
-                annotationProcessor(project(":java-processor"))
-            }
+
         }
 
         val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata") {
@@ -437,6 +444,34 @@ subprojects {
         neoForge.ideSyncTask(generateModMetadata)
     }
 
+}
+
+
+tasks.register<Copy>("extractAllDependencies") {
+    var destDir = layout.buildDirectory.dir("extractMods")
+    destDir.get().asFile.deleteRecursively()
+    val uniqueJars = subprojects
+        .filter { !it.name.contains("java") }
+        .flatMap { project ->
+            project.configurations.runtimeClasspath.get().files
+        }
+        .distinctBy { it.name }
+        .toMutableList()
+        // 按文件名去重
+    var jarFile: JarFile
+    uniqueJars.removeIf {
+        jarFile = JarFile(it)
+        val jarEntry = jarFile.getJarEntry("META-INF/neoforge.mods.toml")
+        var b = jarEntry == null
+        jarFile.close()
+        b
+
+
+    }
+    from(uniqueJars)
+
+    into(destDir)
+    exclude("neoforge-**.jar")
 }
 
 //val clearLib = tasks.register<Delete>("clearLib") {

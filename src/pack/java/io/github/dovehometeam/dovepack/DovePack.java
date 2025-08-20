@@ -1,7 +1,5 @@
 package io.github.dovehometeam.dovepack;
 
-import io.github.dovehometeam.dovepack.common.init.DovePackAttachments;
-import io.github.dovehometeam.dovepack.common.init.DovePackComponents;
 import io.github.dovehometeam.dovepack.config.DovePackConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
@@ -28,8 +26,7 @@ public class DovePack {
     }
 
     public void modEventBus(IEventBus eventBus) {
-        DovePackComponents.init(eventBus);
-        DovePackAttachments.init(eventBus);
+
     }
 
 

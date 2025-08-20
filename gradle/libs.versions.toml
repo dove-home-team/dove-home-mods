@@ -6,8 +6,8 @@ vanillin-version = "1.0.0-beta-9"
 registrate-version = "MC1.21-1.3.0+62"
 ponder-version="1.0.45"
 create-version="6.0.4-50"
-create-dragons-plus-version="1.4.2"
-create-enchantment-industry-version="2.1.0"
+create-dragons-plus-version="1.6.1"
+create-enchantment-industry-version="2.1.7"
 create-rustic-structures-version="6372212"
 delight-version="1.21.1-1.2.7"
 my-nethers-delight-version="1.8"
@@ -60,6 +60,7 @@ silent-lib-version="10.4.0"
 silents-gems-version="5.0.3"
 unfocused-version="0.1.67-neoforge"
 scriptor-magicae-version="1.4.7-neoforge"
+finitewater-version="5541480"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -71,6 +72,7 @@ mekanism-advancedgenerators={group="curse.maven", name="mekanism-advancedgenerat
 ars-creo={group="curse.maven", name="ars-creo-575698", version.ref="ars-creo-version"}
 flux-networks={group="curse.maven", name="flux-networks-248020", version.ref="flux-networks-version"}
 refined-storage={group="curse.maven", name="refined-storage-243076", version.ref="refined-storage-version"}
+finitewater={group="curse.maven", name="finitewater-821384", version.ref="finitewater-version"}
 # modrinth maven
 scriptor-magicae={group="maven.modrinth", name="scriptor-magicae", version.ref="scriptor-magicae-version"}
 unfocused={group="maven.modrinth", name="unfocused", version.ref="unfocused-version"}
@@ -149,7 +151,7 @@ ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", v
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
 dove_pack_compileOnly=["flywheel-api"]
-dove_pack_runtimeOnly=["flywheel", "vanillin", "ae2fix"]
+dove_pack_runtimeOnly=["flywheel", "vanillin", "ae2fix", "finitewater"]
 dove_pack_prepose=[
     "registrate", "ponder",
     "create-dragons-plus",
