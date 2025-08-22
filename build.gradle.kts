@@ -118,6 +118,7 @@ allprojects {
                 includeGroup("dev.latvian.apps")
             }
         }
+        maven("https://thedarkcolour.github.io/KotlinForForge/")
     }
     idea {
         module {
@@ -158,6 +159,10 @@ subprojects {
             dependsOn(copyToMerge.get())
         }
 
+        val at = rootProject.file("src/${project.name}/resources/META-INF/accesstransformer.cfg")
+        at.parentFile.mkdirs()
+        at.createNewFile()
+
         neoForge {
             version = neoVersion
             parchment {
@@ -165,6 +170,11 @@ subprojects {
                 minecraftVersion = parchmentMinecraftVersion.replace("{mcVersion}", mcVersion)
             }
             val dataPath = rootProject.file("src/${project.name}/generated").absolutePath
+
+            if (at.readBytes().isNotEmpty()) {
+                setAccessTransformers(at)
+            }
+
             runs {
                 register("client") {
                     client()
@@ -187,8 +197,9 @@ subprojects {
                         "--mod", base.archivesName.get(),
                         "--all",
                         "--output", dataPath,
-                        "--existing", file("src/main/resources/").absolutePath
+                        "--existing", rootProject.file("src/${project.name}/resources").absolutePath
                     ))
+                    gameDirectory.set(file("runs/data"))
                     environment("datagen", "true")
                 }
                 configureEach {

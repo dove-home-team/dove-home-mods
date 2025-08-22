@@ -1,0 +1,13 @@
+// 1.21.1	2025-08-22T09:44:56.1528733	Registrate Provider for dove_pack [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+97086f01084ebb7905520c95fbd98ef5cb9a3ef6 assets/dove_pack/blockstates/sandstone_crafting_table.json
+240ca1afa9d631b1a214e61060b46272adb7f76c assets/dove_pack/lang/en_ud.json
+ae4a294c88364d6b4d6a674bf737c890353e70ce assets/dove_pack/lang/en_us.json
+3c86a81731d48a305dc43b247e968e80db6a490d assets/dove_pack/models/block/sandstone_crafting_table.json
+d3c5223a13f78941d56f05164376d0b1ec42c7df assets/dove_pack/models/item/sandstone_crafting_table.json
+a58956449d5bc69de555ca1425ae4bfb9066b898 data/dove_pack/advancement/recipes/misc/red_sandstone.json
+ab353dddd2296bb9292b7497d82c460f38e77243 data/dove_pack/advancement/recipes/misc/sandstone.json
+4e62765dad4436322303caa2badc13d37bfe8723 data/dove_pack/advancement/recipes/misc/sandstone_crafting_table.json
+9167664c37f1aba7d48d243076a1e20227ec6572 data/dove_pack/loot_table/blocks/sandstone_crafting_table.json
+899c9ad83a1dbf22d713ae68a8d87b1881570d82 data/dove_pack/recipe/red_sandstone.json
+03b6f4cf9938f303a94a39a319b2e44ab693c953 data/dove_pack/recipe/sandstone.json
+0105367620cc3b7b174a43e8f6c5e384dcd6b9cb data/dove_pack/recipe/sandstone_crafting_table.json

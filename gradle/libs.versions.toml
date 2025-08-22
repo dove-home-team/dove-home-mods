@@ -58,12 +58,14 @@ glodium-version="5614731"
 silent-gear-version="4.0.20"
 silent-lib-version="10.4.0"
 silents-gems-version="5.0.3"
-unfocused-version="0.1.67-neoforge"
-scriptor-magicae-version="1.4.7-neoforge"
+unfocused-version="0.2.0-1.21.1-neoforge"
+scriptor-magicae-version="1.4.13-neoforge"
+kotlin-for-forge-version="5.9.0"
 finitewater-version="5541480"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
+kotlin-for-forge={group="thedarkcolour", name="kotlinforforge-neoforge", version.ref="kotlin-for-forge-version"}
 # curse maven
 glodium={group="curse.maven", name="glodium-957920", version.ref="glodium-version"}
 ae2things={group="curse.maven", name="ae2-things-forge-609977", version.ref="ae2things-version"}
@@ -151,7 +153,13 @@ ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", v
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
 dove_pack_compileOnly=["flywheel-api"]
-dove_pack_runtimeOnly=["flywheel", "vanillin", "ae2fix", "finitewater"]
+dove_pack_runtimeOnly=[
+    "flywheel",
+    "vanillin",
+    "ae2fix",
+    "finitewater",
+    "kotlin-for-forge"
+]
 dove_pack_prepose=[
     "registrate", "ponder",
     "create-dragons-plus",
