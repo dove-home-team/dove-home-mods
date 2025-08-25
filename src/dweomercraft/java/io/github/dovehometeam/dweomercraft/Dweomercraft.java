@@ -18,7 +18,6 @@ public class Dweomercraft {
 
     }
 
-    @GameEntryPoint
     public void gameEventBus(IEventBus modBus) {
 
     }

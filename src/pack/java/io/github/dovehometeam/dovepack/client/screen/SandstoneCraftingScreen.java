@@ -12,8 +12,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.CraftingMenu;
-import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.Slot;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -25,7 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class SandstoneCraftingScreen extends AbstractContainerScreen<SandstoneCraftingMenu> implements RecipeUpdateListener {
-    private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation.withDefaultNamespace("textures/gui/container/crafting_table.png");
+    private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation
+            .withDefaultNamespace("textures/gui/container/crafting_table.png");
     @Getter
     private final RecipeBookComponent recipeBookComponent = new RecipeBookComponent();
     private boolean widthTooNarrow;

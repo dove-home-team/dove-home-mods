@@ -1,52 +1,52 @@
 [versions]
 mod-dev-gradle-version = "2.0.86"
 lombok-version = "1.18.38"
-flywheel-version = "1.0.0-9"
-vanillin-version = "1.0.0-beta-9"
+flywheel-version = "1.0.4-30"
+vanillin-version = "1.1.3-30"
 registrate-version = "MC1.21-1.3.0+62"
-ponder-version="1.0.45"
-create-version="6.0.4-50"
+ponder-version="1.0.61"
+create-version="6.0.7-117"
 create-dragons-plus-version="1.6.1"
 create-enchantment-industry-version="2.1.7"
 create-rustic-structures-version="6372212"
-delight-version="1.21.1-1.2.7"
+delight-version="1.21.1-1.2.9"
 my-nethers-delight-version="1.8"
 ends-delight-version="2.5.1+neoforge.1.21.1"
-corn-delight-version="1.1.4-1.21.1"
-cultural-delights-version="0.17.6"
+corn-delight-version="1.1.8-1.21.1"
+cultural-delights-version="0.17.7"
 pineapple-delight-version="1.0.4"
-butchercraft-version="2.6.3"
-xnet-version="1.21-7.0.4"
-mcjtylib-version="1.21-9.0.8"
+butchercraft-version="2.6.4"
+xnet-version="1.21-7.0.6"
+mcjtylib-version="1.21-9.0.12"
 pipez-version="neoforge-1.21.1-1.2.19"
-jade-version="15.10.0+neoforge"
+jade-version="15.10.3+neoforge"
 jade-addons-version="6.1.0+neoforge"
-rftools-base-version="1.21-6.0.7"
-immersive-engineering-version="12.2.0-187"
+rftools-base-version="1.21-6.0.8"
+immersive-engineering-version="12.4.2-194"
 mmlib-version="1.2.11-1.21.1"
-pneumaticcraft-repressurized-version="8.2.12+mc1.21.1"
-mekanism-version="1.21.1-10.7.14.79"
-kubejs-version="2101.7.2-build.233"
+pneumaticcraft-repressurized-version="8.2.13+mc1.21.1"
+mekanism-version="1.21.1-10.7.15.81"
+kubejs-version="2101.7.2-build.249"
 more-mekanism-processing-version="6.4"
 mekanism-advancedgenerators-version="6488742"
 ars-creo-version="6279953"
-mekanism-extra-version="1.21.1-1.2.1"
-ars-nouveau-version="5.8.2.1096"
-ars-elemental-version="0.7.3.0.68"
+mekanism-extra-version="1.21.1-1.2.4"
+ars-nouveau-version="5.10.3.1202"
+ars-elemental-version="0.7.6.0.87"
 ars-energistique-version="2.1.1-beta"
-powah-version="6.2.4-neoforge"
-packaged-mekemicals-version="2.0.0.3"
-packaged-auto-version="4.0.4.10"
-packaged-ex-crafting-version="4.0.0.4"
-cloth-config-version="15.0.127"
-appliedenergistics-version="19.2.9"
-guideme-version="21.1.7"
-extended-crafting-version="1.21.1-7.0.5"
-cucumber-version="1.21.1-8.0.12"
-patchouli-version="1.21-88-NEOFORGE"
-botania-version="449-SNAPSHOT"
+powah-version="6.2.6-neoforge"
+packaged-mekemicals-version="2.0.0.6"
+packaged-auto-version="4.0.6.16"
+packaged-ex-crafting-version="4.0.0.10"
+cloth-config-version="15.0.140"
+appliedenergistics-version="19.2.15"
+guideme-version="21.1.14"
+extended-crafting-version="1.21.1-7.0.6"
+cucumber-version="1.21.1-8.0.14"
+patchouli-version="1.21.1-92-NEOFORGE"
+botania-version="451-SNAPSHOT"
 flux-networks-version="6089446"
-extended-ae-version="1.21-2.2.6-neoforge"
+extended-ae-version="1.21-2.2.12-neoforge"
 ae2wtlib-version="19.2.3"
 ae2things-version="5637783"
 ae2fix-version="0.6.0"
@@ -133,7 +133,7 @@ cucumber={group="com.blakebr0.cucumber", name="Cucumber",version.ref="cucumber-v
 
 # blamejared maven
 patchouli={group="vazkii.patchouli", name="Patchouli", version.ref="patchouli-version"}
-botania={group="vazkii.patchouli", name="botania-neoforge-1.21.1", version.ref="botania-version"}
+botania={group="vazkii.botania", name="botania-neoforge-1.21.1", version.ref="botania-version"}
 
 
 registrate={group="com.tterrag.registrate", name="Registrate", version.ref="registrate-version"}
@@ -152,6 +152,9 @@ ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", v
 [bundles]
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
+dove_pack_access_compileOnly=[
+
+]
 dove_pack_compileOnly=["flywheel-api"]
 dove_pack_runtimeOnly=[
     "flywheel",

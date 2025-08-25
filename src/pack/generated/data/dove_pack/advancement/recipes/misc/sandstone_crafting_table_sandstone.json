@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sandstone_blocks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:sandstone/blocks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dove_pack:sandstone_crafting_table_sandstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sandstone_blocks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dove_pack:sandstone_crafting_table_sandstone"
+    ]
+  }
+}

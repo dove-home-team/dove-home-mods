@@ -49,7 +49,7 @@ public class DovePack {
 
                 ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(ctx.getFirst(), ctx.getSecond()).define('X', ingredient.toVanilla());
                 builder.pattern("XX").pattern("XX");
-                builder.unlockedBy("has_" + prov.safeName(ingredient), ingredient.getCriterion(prov)).group("sandstone").save(prov, prov.safeId(ctx.getSecond()));
+                builder.unlockedBy("has_" + prov.safeName(ingredient), ingredient.getCriterion(prov)).group("sandstone").save(prov, prov.safeId(ctx.getSecond()).withSuffix("_sandstone"));
             });
         });
     }

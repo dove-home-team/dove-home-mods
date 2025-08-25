@@ -1,8 +1,3 @@
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonObject
-import org.gradle.internal.extensions.stdlib.capitalized
-import org.gradle.internal.impldep.org.tomlj.Toml
-import org.gradle.internal.impldep.org.tomlj.internal.TomlParser
 import org.slf4j.event.Level
 import java.time.LocalDateTime
 import java.util.*
@@ -14,6 +9,7 @@ plugins {
     `java-library`
     `maven-publish`
     alias(libs.plugins.mod.dev.gradle)
+    id("dev.vfyjxf.modaccessor") version "1.1"
 }
 
 val mcVersion: String by rootProject
@@ -39,6 +35,7 @@ allprojects {
     apply(plugin = "idea")
     apply(plugin = "maven-publish")
     apply(plugin = "java-library")
+    apply(plugin = "dev.vfyjxf.modaccessor")
     java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
     if (project.name.contains("java").not() && project != rootProject) {
@@ -53,6 +50,14 @@ allprojects {
             .replace("{SECOND}", date.second.toString())
         group = modGroupId
     }
+
+    repositories {
+        flatDir {
+            dir(rootProject.file("libs"))
+        }
+    }
+
+
     repositories {
         //www.curseforge.com/api/v1/mods/projectId/files/fileId/download
         //mediafilez.forgecdn.net/files/top_start4/top_other_num/downloadFileName
@@ -63,6 +68,7 @@ allprojects {
                 includeGroup("com.github.glitchfiend")
             }
         }
+        maven("https://www.jitpack.io")
         maven("https://maven.shedaniel.me")
         maven("https://maven.crystaelix.com/releases/") {
             content {
@@ -92,7 +98,15 @@ allprojects {
             url = uri("http://maven.dragons.plus/releases")
             isAllowInsecureProtocol = true
         } // Ponder, Flywheel
-        maven("https://maven.createmod.net") // Ponder, Flywheel
+        maven("https://maven.createmod.net") {
+            content {
+                includeGroup("dev.engine-room.flywheel")
+                includeGroup("dev.engine-room.vanillin")
+                includeGroup("com.simibubi.create")
+                includeGroup("net.createmod.ponder")
+            }
+        } // Ponder, Flywheel
+        maven("https://maven.ithundxr.dev/snapshots")
         maven("https://mvn.devos.one/snapshots") // Registrate
         maven("https://maven.blamejared.com") // JEI
         maven("https://maven.theillusivec4.top/") // Curios API
@@ -178,17 +192,18 @@ subprojects {
             runs {
                 register("client") {
                     client()
-                    gameDirectory.set(file("runs/client"))
+                    gameDirectory.set(rootProject.file("src/${project.name}/runs/client"))
                     systemProperty("neoforge.enabledGameTestNamespaces", base.archivesName.get())
                 }
                 register("server") {
                     server()
                     programArgument("--nogui")
-                    gameDirectory.set(file("runs/server"))
+                    gameDirectory.set(rootProject.file("src/${project.name}/runs/server"))
                     systemProperty("neoforge.enabledGameTestNamespaces", base.archivesName.get())
                 }
                 register("gameTestServer") {
                     type = "gameTestServer"
+                    gameDirectory.set(rootProject.file("src/${project.name}/runs/gts"))
                     systemProperty("neoforge.enabledGameTestNamespaces", base.archivesName.get())
                 }
                 register("data") {
@@ -199,12 +214,13 @@ subprojects {
                         "--output", dataPath,
                         "--existing", rootProject.file("src/${project.name}/resources").absolutePath
                     ))
-                    gameDirectory.set(file("runs/data"))
+                    gameDirectory.set(rootProject.file("src/${project.name}/runs/data"))
                     environment("datagen", "true")
                 }
                 configureEach {
                     systemProperty("forge.logging.markers", "REGISTRIES")
                     logLevel = Level.DEBUG
+                    gameDirectory.get().asFile.mkdirs()
                 }
             }
 
@@ -267,21 +283,24 @@ subprojects {
 
             }
         }
-        val libsDir = rootProject.file("libs/${project.name}")
-        libsDir.mkdirs()
-        repositories {
-            flatDir {
-                dir(libsDir.absolutePath)
-            }
+
+        modAccessor {
+            createTransformConfiguration(configurations.compileOnly.get())
+            createTransformConfiguration(configurations.implementation.get())
+            accessTransformerFiles = rootProject.files("src/${project.name}/resources/META-INF/accesstransformer.cfg")
         }
 
         dependencies {
-
-            implementation(
-                fileTree(baseDir = libsDir.absolutePath) {
-                    include("*.jar")
-                }
-            )
+            lib.findBundle(base.archivesName.get() + "_access_compileOnly").ifPresentOrElse({
+                "accessCompileOnly"(it)
+            }, {
+                logger.error("Cannot find bundle: ${base.archivesName.get()}_access_compileOnly")
+            })
+            lib.findBundle(base.archivesName.get() + "_access_compileOnly_transitive_false").ifPresentOrElse({
+                "accessCompileOnly"(it) {isTransitive = false }
+            }, {
+                logger.error("Cannot find bundle: ${base.archivesName.get()}_access_compileOnly_transitive_false")
+            })
             lib.findBundle(base.archivesName.get() + "_compileOnly").ifPresentOrElse({
                 compileOnly(it)
             }, {
@@ -292,6 +311,7 @@ subprojects {
             }, {
                 logger.error("Cannot find bundle: ${base.archivesName.get()}_compileOnly_transitive_false")
             })
+
 
 
             lib.findBundle(base.archivesName.get() + "_runtimeOnly").ifPresentOrElse({
@@ -495,4 +515,17 @@ val buildAll by tasks.registering {
             dependsOn(it.tasks.build)
         }
     }
+}
+subprojects.forEach {
+    println(it)
+    if (it.name.contains("java") || it.name.equals("coremod")) {
+        return@forEach
+    }
+    project(":coremod") {
+        dependencies {
+            implementation(it)
+            jarJar(it)
+        }
+    }
+
 }

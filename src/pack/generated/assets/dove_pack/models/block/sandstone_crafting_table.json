@@ -2,10 +2,10 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "minecraft:block/oak_planks",
-    "east": "dove_pack:block/sandstone_crafting_table_side",
-    "north": "dove_pack:block/sandstone_crafting_table_front",
-    "south": "dove_pack:block/sandstone_crafting_table_side",
-    "up": "dove_pack:block/sandstone_crafting_table_top",
-    "west": "dove_pack:block/sandstone_crafting_table_front"
+    "east": "dove_pack:block/minecraft/sandstone_crafting_table_side",
+    "north": "dove_pack:block/minecraft/sandstone_crafting_table_front",
+    "south": "dove_pack:block/minecraft/sandstone_crafting_table_side",
+    "up": "dove_pack:block/minecraft/sandstone_crafting_table_top",
+    "west": "dove_pack:block/minecraft/sandstone_crafting_table_front"
   }
 }
