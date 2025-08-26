@@ -56,7 +56,7 @@ public class ModBlocks {
                     .blockstate((ctx, prov) -> {
                         BlockModelBuilder it = prov.models().cube(
                                 ctx.getName(),
-                                ResourceLocation.fromNamespaceAndPath("minecraft", "block/oak_planks"),
+                                ResourceLocation.fromNamespaceAndPath("minecraft", "block/sandstone_bottom"),
                                 Const.modLoc("block/minecraft/" + ctx.getName() + "_top"),
                                 Const.modLoc("block/minecraft/" + ctx.getName() + "_front"),
                                 Const.modLoc("block/minecraft/" + ctx.getName() + "_side"),

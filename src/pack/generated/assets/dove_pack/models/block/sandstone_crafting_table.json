@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "minecraft:block/oak_planks",
+    "down": "minecraft:block/sandstone_bottom",
     "east": "dove_pack:block/minecraft/sandstone_crafting_table_side",
     "north": "dove_pack:block/minecraft/sandstone_crafting_table_front",
     "south": "dove_pack:block/minecraft/sandstone_crafting_table_side",

@@ -25,12 +25,12 @@ rftools-base-version="1.21-6.0.8"
 immersive-engineering-version="12.4.2-194"
 mmlib-version="1.2.11-1.21.1"
 pneumaticcraft-repressurized-version="8.2.13+mc1.21.1"
-mekanism-version="1.21.1-10.7.15.81"
+mekanism-version="1.21.1-10.7.14.79"
 kubejs-version="2101.7.2-build.249"
 more-mekanism-processing-version="6.4"
 mekanism-advancedgenerators-version="6488742"
 ars-creo-version="6279953"
-mekanism-extra-version="1.21.1-1.2.4"
+mekanism-extra-version="1.21.1-1.2.1"
 ars-nouveau-version="5.10.3.1202"
 ars-elemental-version="0.7.6.0.87"
 ars-energistique-version="2.1.1-beta"
@@ -62,6 +62,7 @@ unfocused-version="0.2.0-1.21.1-neoforge"
 scriptor-magicae-version="1.4.13-neoforge"
 kotlin-for-forge-version="5.9.0"
 finitewater-version="5541480"
+jei-version="19.22.1.316"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -149,19 +150,23 @@ mekanism={group="mekanism", name="Mekanism", version.ref="mekanism-version"}
 kubejs={group="dev.latvian.mods", name="kubejs-neoforge", version.ref="kubejs-version"}
 
 ars-nouveau={group="com.hollingsworth.ars_nouveau", name="ars_nouveau-1.21.1", version.ref="ars-nouveau-version"}
+
+jei-api={group="mezz.jei", name="jei-1.21.1-neoforge-api", version.ref="jei-version"}
+jei={group="mezz.jei", name="jei-1.21.1-neoforge", version.ref="jei-version"}
 [bundles]
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
 dove_pack_access_compileOnly=[
 
 ]
-dove_pack_compileOnly=["flywheel-api"]
+dove_pack_compileOnly=["flywheel-api", "jei-api"]
 dove_pack_runtimeOnly=[
     "flywheel",
     "vanillin",
     "ae2fix",
     "finitewater",
-    "kotlin-for-forge"
+    "kotlin-for-forge",
+    "jei"
 ]
 dove_pack_prepose=[
     "registrate", "ponder",
