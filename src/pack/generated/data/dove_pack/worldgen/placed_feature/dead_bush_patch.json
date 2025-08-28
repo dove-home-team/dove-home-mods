@@ -1,5 +1,5 @@
 {
-  "feature": "dove_pack:dead_bush_patch_config",
+  "feature": "dove_pack:dead_bush_patch",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

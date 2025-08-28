@@ -16,7 +16,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import java.util.Locale;
 import java.util.function.Supplier;
 
-import static io.github.dovehometeam.dovepack.common.world.DesertDimension.*;
 
 /**
  * @author baka4n

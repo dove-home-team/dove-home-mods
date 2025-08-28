@@ -6,6 +6,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.DataIngredient;
 import io.github.dovehometeam.dovepack.client.init.ModMenus;
 import io.github.dovehometeam.dovepack.common.block.SandstoneCraftingTableBlock;
+import io.github.dovehometeam.dovepack.common.init.ModAttachments;
 import io.github.dovehometeam.dovepack.common.init.ModBlocks;
 import io.github.dovehometeam.dovepack.config.DovePackConfig;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -34,6 +35,7 @@ public class DovePack {
 
     public DovePack(IEventBus modBus, ModContainer container) {
         ModBlocks.init();
+        ModAttachments.init();
         ModMenus.init();
 
         AutoConfig.register(DovePackConfig.class, JanksonConfigSerializer::new);

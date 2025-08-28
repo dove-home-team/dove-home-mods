@@ -14,10 +14,8 @@ import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 
 import java.util.Locale;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static io.github.dovehometeam.dovepack.common.world.DesertDimension.*;
 
 /**
  * @author baka4n

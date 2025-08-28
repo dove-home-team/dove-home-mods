@@ -7,6 +7,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
@@ -25,10 +26,8 @@ public class DatagenEvents {
 
         generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
                 output, lookupProvider, new RegistrySetBuilder()
-                .add(Registries.NOISE, DoveNoise::bootstrapNoiseParameters)
                 .add(Registries.DIMENSION_TYPE, DoveDimensionType::bootstrapDimensionType)
                 .add(Registries.BIOME, DoveBiome::bootstrapBiome)
-                .add(Registries.NOISE_SETTINGS, DoveNoiseGeneratorSettings::bootstrapNoiseSettings)
                 .add(Registries.CONFIGURED_FEATURE, DoveConfiguredFeature::bootstrapConfiguredFeatures)
                 .add(Registries.PLACED_FEATURE, DovePlacedFeature::bootstrapPlacedFeatures)
                 .add(Registries.STRUCTURE, DoveStructure::bootstrapStructures)

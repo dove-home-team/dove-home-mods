@@ -1,5 +1,5 @@
 {
-  "feature": "dove_pack:oil_well_config",
+  "feature": "dove_pack:oil_well",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
