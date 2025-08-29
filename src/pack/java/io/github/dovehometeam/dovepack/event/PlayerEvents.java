@@ -7,9 +7,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -26,17 +28,39 @@ public class PlayerEvents {
     @SubscribeEvent
     public static void playerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
-        Level level = player.level();
-        if (!(level instanceof ServerLevel serverLevel)) return;
+
+        if (!(player instanceof ServerPlayer serverPlayer)) return;
+        ServerLevel serverLevel = serverPlayer.serverLevel();
         MinecraftServer server = serverLevel.getServer();
-        ServerPlayer serverPlayer = (ServerPlayer) player;
-        if (!player.hasData(ModAttachments.FIRST_JOIN)) {
+        if (!player.hasData(ModAttachments.FIRST_JOIN) || !player.getData(ModAttachments.FIRST_JOIN)) {
             ServerLevel desert = server.getLevel(DoveLevel.DESERT_DIM.get());
             if (desert != null) {
-                player.teleportTo(desert, 0, 70, 0, new HashSet<>(), player.getYRot(),player.getXRot());
-                player.setData(ModAttachments.FIRST_JOIN, true);
-                serverPlayer.setRespawnPosition(DoveLevel.DESERT_DIM.get(), new BlockPos(0, 70, 0), serverPlayer.getRespawnAngle(), true, false);
+                BlockPos randomPos = getRandomizedSpawnPosition(desert);
+                serverPlayer.setRespawnPosition(
+                        DoveLevel.DESERT_DIM.get(), randomPos, 0.0F, true, false
+                );
+                DimensionTransition transition = serverPlayer.findRespawnPositionAndUseSpawnBlock(
+                        false,
+                        DimensionTransition.DO_NOTHING
+                );
+                if (serverPlayer.level() == transition.newLevel()) {
+                    Vec3 pos = transition.pos();
+                    serverPlayer.connection.teleport(pos.x, pos.y, pos.z, player.getYRot(), player.getXRot());
+                } else {
+                    serverPlayer.changeDimension(transition);
+                }
             }
         }
+    }
+
+    private static BlockPos getRandomizedSpawnPosition(ServerLevel level) {
+        RandomSource random = level.random;
+        BlockPos worldSpawn = level.getSharedSpawnPos();
+
+        // 在世界出生点周围随机偏移
+        int offsetX = random.nextInt(20000) - 10000; // -10000 到 10000
+        int offsetZ = random.nextInt(20000) - 10000; // -10000 到 10000
+
+        return worldSpawn.offset(offsetX, 0, offsetZ);
     }
 }
