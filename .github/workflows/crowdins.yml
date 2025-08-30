@@ -1,0 +1,19 @@
+name: crowdin
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  synchronize-with-crowdin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crowdin action
+        uses: crowdin/github-action@v2
+        with:
+          upload_sources: true
+          download_translations: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          DOVE_CROWDIN_PROJECT_ID: ${{ secrets.DOVE_CROWDIN_PROJECT_ID }}
+          DOVE_CROWDIN_API_TOKEN: ${{ secrets.DOVE_CROWDIN_API_TOKEN }}
