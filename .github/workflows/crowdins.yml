@@ -1,5 +1,30 @@
 name: crowdin
 on:
+  schedule:
+    - cron: "0 0 * * *"
+    - cron: "0 1 * * *"
+    - cron: "0 2 * * *"
+    - cron: "0 3 * * *"
+    - cron: "0 4 * * *"
+    - cron: "0 5 * * *"
+    - cron: "0 6 * * *"
+    - cron: "0 7 * * *"
+    - cron: "0 8 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 10 * * *"
+    - cron: "0 11 * * *"
+    - cron: "0 12 * * *"
+    - cron: "0 13 * * *"
+    - cron: "0 14 * * *"
+    - cron: "0 15 * * *"
+    - cron: "0 16 * * *"
+    - cron: "0 17 * * *"
+    - cron: "0 18 * * *"
+    - cron: "0 19 * * *"
+    - cron: "0 20 * * *"
+    - cron: "0 21 * * *"
+    - cron: "0 22 * * *"
+    - cron: "0 23 * * *"
   push:
     branches: [ main ]
 
@@ -7,6 +32,7 @@ jobs:
   synchronize-with-crowdin:
     permissions:
       contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,3 +45,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           DOVE_CROWDIN_PROJECT_ID: ${{ secrets.DOVE_CROWDIN_PROJECT_ID }}
           DOVE_CROWDIN_API_TOKEN: ${{ secrets.DOVE_CROWDIN_API_TOKEN }}
+      - name: Auto Approve
+        uses: hmarr/auto-approve-action@v4
+        if: github.actor == 'crowdin-bot'
+
+
