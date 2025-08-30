@@ -9,5 +9,3 @@ pull_request_labels:
 files:
   - source: /src/pack/generated/assets/dove_pack/lang/en_us.json
     translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.json
-bundles:
-  - 2
