@@ -8,7 +8,6 @@ pull_request_labels:
   - l10n
 files:
   - source: /src/pack/generated/assets/dove_pack/lang/en_us.json
-    translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.%file_extension%
-    dest: /messages.%file_extension%
+    translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.json
 bundles:
   - 2
