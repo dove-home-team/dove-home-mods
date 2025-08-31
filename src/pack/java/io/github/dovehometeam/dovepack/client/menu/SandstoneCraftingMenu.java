@@ -1,9 +1,9 @@
 package io.github.dovehometeam.dovepack.client.menu;
 
-import io.github.dovehometeam.dovepack.common.block.DoveCraftingTableBaseBlock;
+import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
+import io.github.dovehometeam.dovepack.client.init.ModMenus;
 import io.github.dovehometeam.dovepack.common.block.SandstoneCraftingTableBlock;
 import io.github.dovehometeam.dovepack.common.init.ModBlocks;
-import lombok.RequiredArgsConstructor;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -22,11 +22,11 @@ public class SandstoneCraftingMenu extends DoveCraftingBaseMenu<SandstoneCraftin
 
 
     public SandstoneCraftingMenu(int containerId, Inventory playerInventory) {
-        super(containerId, playerInventory);
+        super(ModMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory);
     }
 
     public SandstoneCraftingMenu(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
-        super(containerId, playerInventory, access);
+        super(ModMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory, access);
     }
 
     @Override

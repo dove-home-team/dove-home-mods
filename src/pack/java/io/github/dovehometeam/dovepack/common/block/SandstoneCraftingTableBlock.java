@@ -1,7 +1,8 @@
 package io.github.dovehometeam.dovepack.common.block;
 
 import com.mojang.serialization.MapCodec;
-import io.github.dovehometeam.dovepack.client.menu.DoveCraftingBaseMenu;
+import io.github.dovehometeam.dovelib.mods.vanilla.block.DoveCraftingTableBaseBlock;
+import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
 import io.github.dovehometeam.dovepack.client.menu.SandstoneCraftingMenu;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

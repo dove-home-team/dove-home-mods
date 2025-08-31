@@ -1,8 +1,7 @@
-package io.github.dovehometeam.dovepack.common.block;
+package io.github.dovehometeam.dovelib.mods.vanilla.block;
 
 import com.mojang.serialization.MapCodec;
-import io.github.dovehometeam.dovepack.client.menu.DoveCraftingBaseMenu;
-import io.github.dovehometeam.dovepack.client.menu.SandstoneCraftingMenu;
+import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
 import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -13,7 +12,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;

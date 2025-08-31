@@ -1,6 +1,7 @@
-package io.github.dovehometeam.dovepack.client.screen;
+package io.github.dovehometeam.dovelib.mods.vanilla.screen;
 
-import io.github.dovehometeam.dovepack.client.menu.DoveCraftingBaseMenu;
+import io.github.dovehometeam.dovelib.mods.vanilla.block.DoveCraftingTableBaseBlock;
+import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
 import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
@@ -22,14 +23,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class DoveCraftingBaseScreen extends AbstractContainerScreen<DoveCraftingBaseMenu> implements RecipeUpdateListener {
+public class DoveCraftingBaseScreen<T extends DoveCraftingTableBaseBlock<T>,M extends DoveCraftingBaseMenu<T>> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
     private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation
             .withDefaultNamespace("textures/gui/container/crafting_table.png");
     @Getter
     private final RecipeBookComponent recipeBookComponent = new RecipeBookComponent();
     private boolean widthTooNarrow;
 
-    public DoveCraftingBaseScreen(DoveCraftingBaseMenu menu, Inventory playerInventory, Component title) {
+    public DoveCraftingBaseScreen(M menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
 

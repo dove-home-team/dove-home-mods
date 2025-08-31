@@ -1,4 +1,4 @@
-package io.github.dovehometeam.dovepack.common.block;
+package io.github.dovehometeam.dovelib.mods.botania.block;
 
 import vazkii.botania.common.block.PetalApothecaryBlock;
 

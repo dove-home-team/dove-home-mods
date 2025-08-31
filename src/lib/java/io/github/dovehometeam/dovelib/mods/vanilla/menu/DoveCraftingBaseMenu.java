@@ -1,7 +1,6 @@
-package io.github.dovehometeam.dovepack.client.menu;
+package io.github.dovehometeam.dovelib.mods.vanilla.menu;
 
-import io.github.dovehometeam.dovepack.client.init.ModMenus;
-import io.github.dovehometeam.dovepack.common.block.DoveCraftingTableBaseBlock;
+import io.github.dovehometeam.dovelib.mods.vanilla.block.DoveCraftingTableBaseBlock;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -37,12 +36,12 @@ public abstract class DoveCraftingBaseMenu<T extends DoveCraftingTableBaseBlock<
     public boolean placingRecipe;
 
     @SuppressWarnings("unused")
-    public DoveCraftingBaseMenu(int containerId, Inventory playerInventory) {
-        this(containerId, playerInventory, ContainerLevelAccess.NULL);
+    public DoveCraftingBaseMenu(MenuType<? extends DoveCraftingBaseMenu<T>> type,int containerId, Inventory playerInventory) {
+        this(type,containerId, playerInventory, ContainerLevelAccess.NULL);
     }
 
-    public DoveCraftingBaseMenu(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
-        super(ModMenus.SANDSTONE_CRAFTING.get(), containerId);
+    public DoveCraftingBaseMenu(MenuType<? extends DoveCraftingBaseMenu<T>> type,int containerId, Inventory playerInventory, ContainerLevelAccess access) {
+        super(type, containerId);
 
         this.access = access;
         this.player = playerInventory.player;

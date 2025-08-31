@@ -1,38 +1,20 @@
 package io.github.dovehometeam.dovepack.common.init;
 
-import com.mojang.serialization.MapCodec;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import io.github.dovehometeam.dovepack.Const;
-import io.github.dovehometeam.dovepack.DovePack;
-import io.github.dovehometeam.dovepack.common.block.DoveCraftingTableBaseBlock;
-import io.github.dovehometeam.dovepack.common.block.DovePetalApothecaryBlock;
+import io.github.dovehometeam.dovelib.mods.botania.block.DovePetalApothecaryBlock;
 import io.github.dovehometeam.dovepack.common.block.SandstoneCraftingTableBlock;
-import me.desht.pneumaticcraft.common.thirdparty.botania.Botania;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.common.Tags;
-import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.common.block.BotaniaBlocks;
-import vazkii.botania.common.block.PetalApothecaryBlock;
-import vazkii.botania.common.item.BotaniaItems;
 
 import static io.github.dovehometeam.dovepack.DovePack.REGISTRATE;
 
