@@ -156,6 +156,17 @@ jei={group="mezz.jei", name="jei-1.21.1-neoforge", version.ref="jei-version"}
 [bundles]
 all_compileOnly=["lombok"]
 all_ap=["lombok"]
+dove_act_compileOnly=[
+    "kubejs"
+]
+dove_act_runtimeOnly=[
+    "kubejs"
+]
+dove_act_prepose=[
+    "cloth-config",
+    "registrate"
+]
+
 dove_pack_access_compileOnly=[
 
 ]

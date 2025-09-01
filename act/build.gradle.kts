@@ -1,0 +1,3 @@
+dependencies {
+    jarJar(libs.registrate)
+}

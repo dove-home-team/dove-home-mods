@@ -1,9 +1,9 @@
-package io.github.dovehometeam.dovepack.client.menu;
+package io.github.dovehometeam.doveact.client.menu;
 
-import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
-import io.github.dovehometeam.dovepack.client.init.ModMenus;
-import io.github.dovehometeam.dovepack.common.block.SandstoneCraftingTableBlock;
-import io.github.dovehometeam.dovepack.common.init.ModBlocks;
+import io.github.dovehometeam.doveact.common.block.SandstoneCraftingTableBlock;
+
+import io.github.dovehometeam.doveact.init.DoveActBlocks;
+import io.github.dovehometeam.doveact.init.DoveActMenus;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -18,19 +18,19 @@ import java.util.function.Supplier;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 
-public class SandstoneCraftingMenu extends DoveCraftingBaseMenu<SandstoneCraftingTableBlock> {
+public class SandstoneCraftingMenu extends ActCraftingBaseMenu<SandstoneCraftingTableBlock> {
 
 
     public SandstoneCraftingMenu(int containerId, Inventory playerInventory) {
-        super(ModMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory);
+        super(DoveActMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory);
     }
 
     public SandstoneCraftingMenu(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
-        super(ModMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory, access);
+        super(DoveActMenus.SANDSTONE_CRAFTING.get(),containerId, playerInventory, access);
     }
 
     @Override
     public Supplier<SandstoneCraftingTableBlock> block() {
-        return ModBlocks.SANDSTONE_CRAFTING_TABLE;
+        return DoveActBlocks.SANDSTONE_CRAFTING_TABLE;
     }
 }

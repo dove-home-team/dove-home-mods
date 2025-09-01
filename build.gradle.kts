@@ -454,7 +454,18 @@ subprojects {
                 "mod_license" to modLicense,
                 "mod_version" to project.version.toString(),
                 "mod_authors" to modAuthors,
-                "mod_description" to base.archivesName.get()
+                "mod_description" to base.archivesName.get(),
+                "other" to when(project.name) {
+                    "act" -> """
+                        [[dependencies.dove_act]]
+                        modId="cloth_config"
+                        type="required"
+                        versionRange="[15.0.140,)"
+                        ordering="NONE"
+                        side="BOTH"
+                    """.trimIndent()
+                    else -> ""
+                }
             )
             inputs.properties(replaceProperties)
             expand(replaceProperties)

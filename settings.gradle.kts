@@ -11,6 +11,7 @@ plugins {
 }
 
 include("lib","coremod", /*"staff",*/ "dweomercraft", "formation-master", "pack")
+include("act")
 include("java-annotation", "java-processor")
 
 

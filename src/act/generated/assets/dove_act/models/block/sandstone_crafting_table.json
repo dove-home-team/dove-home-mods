@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/sandstone_bottom",
+    "east": "dove_act:block/minecraft/sandstone_crafting_table_side",
+    "north": "dove_act:block/minecraft/sandstone_crafting_table_front",
+    "south": "dove_act:block/minecraft/sandstone_crafting_table_side",
+    "up": "dove_act:block/minecraft/sandstone_crafting_table_top",
+    "west": "dove_act:block/minecraft/sandstone_crafting_table_front"
+  }
+}

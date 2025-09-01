@@ -1,15 +1,15 @@
-package io.github.dovehometeam.dovepack.common.block;
+package io.github.dovehometeam.doveact.common.block;
 
 import com.mojang.serialization.MapCodec;
-import io.github.dovehometeam.dovelib.mods.vanilla.block.DoveCraftingTableBaseBlock;
-import io.github.dovehometeam.dovelib.mods.vanilla.menu.DoveCraftingBaseMenu;
-import io.github.dovehometeam.dovepack.client.menu.SandstoneCraftingMenu;
+import io.github.dovehometeam.doveact.client.menu.ActCraftingBaseMenu;
+import io.github.dovehometeam.doveact.client.menu.SandstoneCraftingMenu;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,11 +19,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class SandstoneCraftingTableBlock extends DoveCraftingTableBaseBlock<SandstoneCraftingTableBlock> {
+public class SandstoneCraftingTableBlock extends ActCraftingTableBaseBlock<SandstoneCraftingTableBlock> {
 
     public static final MapCodec<SandstoneCraftingTableBlock> CODEC = simpleCodec(SandstoneCraftingTableBlock::new);
 
-    public SandstoneCraftingTableBlock(Properties properties) {
+    public SandstoneCraftingTableBlock(BlockBehaviour.Properties properties) {
         super(properties, "sandstone");
     }
 
@@ -33,7 +33,7 @@ public class SandstoneCraftingTableBlock extends DoveCraftingTableBaseBlock<Sand
     }
 
     @Override
-    public DoveCraftingBaseMenu<SandstoneCraftingTableBlock> menu(int containerId, Inventory playerInventory, Player player, Level level, BlockPos pos) {
+    public ActCraftingBaseMenu<SandstoneCraftingTableBlock> menu(int containerId, Inventory playerInventory, Player player, Level level, BlockPos pos) {
         return new SandstoneCraftingMenu(containerId, playerInventory, ContainerLevelAccess.create(level, pos));
     }
 }
