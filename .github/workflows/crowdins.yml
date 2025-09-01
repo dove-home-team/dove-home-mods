@@ -40,9 +40,13 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Check directory exists
+        uses: andstor/file-existence-action@v3
+        id: check_directory
+        with:
+          files: "crowdin/"
       - name: Copy Language by Crowdin
         run: |
-          mkdir crowdin
           cp src/act/generated/assets/dove_act/lang/en_us.json crowdin/dove_act.json
           cp src/pack/generated/assets/dove_pack/lang/en_us.json crowdin/dove_pack.json
       - name: Commit and push changes
