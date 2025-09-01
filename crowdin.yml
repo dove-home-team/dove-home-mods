@@ -1,5 +1,6 @@
 project_id_env: DOVE_CROWDIN_PROJECT_ID
 api_token_env: DOVE_CROWDIN_API_TOKEN
+preserve_hierarchy: true
 files:
   - source: /src/pack/generated/assets/dove_pack/lang/en_us.json
     dest: /dove-pack.en-us.json
