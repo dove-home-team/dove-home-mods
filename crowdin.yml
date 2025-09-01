@@ -5,6 +5,6 @@ files:
     dest: /dove-pack-en-us.json
     translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.json
   - source: /src/act/generated/assets/dove_act/lang/en_us.json
-    dest: /dove-axt.en-us.json
+    dest: /dove-act.en-us.json
     translation: /src/act/resources/assets/dove_act/lang/%locale_with_underscore%.json
 
