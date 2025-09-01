@@ -5,4 +5,4 @@ files:
     translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.json
 bundles:
   - 4
-  - 6
+  - 8
