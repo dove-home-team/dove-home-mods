@@ -2,10 +2,9 @@ project_id_env: DOVE_CROWDIN_PROJECT_ID
 api_token_env: DOVE_CROWDIN_API_TOKEN
 files:
   - source: /src/pack/generated/assets/dove_pack/lang/en_us.json
+    dest: /dove-pack-en-us.json
     translation: /src/pack/resources/assets/dove_pack/lang/%locale_with_underscore%.json
   - source: /src/act/generated/assets/dove_act/lang/en_us.json
+    dest: /dove-axt.en-us.json
     translation: /src/act/resources/assets/dove_act/lang/%locale_with_underscore%.json
 
-bundles:
-  - 4
-  - 8
