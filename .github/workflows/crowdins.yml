@@ -36,6 +36,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Git
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Copy Language by Crowdin
+        run: |
+          mkdir crowdin
+          cp src/dove_act/generated/assets/dove_act/lang/en_us.json crowdin/dove_act.json
+          cp src/dove_pack/generated/assets/dove_pack/lang/en_us.json crowdin/dove_pack.json
+      - name: Commit and push changes
+        run: |
+          git add crowdin/
+          git commit -m "Language Update to Crowdin" || echo "No changes to commit"
+          git push
       - name: Crowdin action
         uses: crowdin/github-action@v2
         with:
