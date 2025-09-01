@@ -1,3 +1,5 @@
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import org.slf4j.event.Level
 import java.time.LocalDateTime
 import java.util.*
@@ -519,6 +521,26 @@ tasks.register<Copy>("extractAllDependencies") {
 //val clearLib = tasks.register<Delete>("clearLib") {
 //    delete("build/libs/**")
 //}
+val gson = GsonBuilder().setPrettyPrinting().create()
+val crowdin by tasks.registering {
+    val en = JsonObject()
+    subprojects.forEach {
+        val enUs = rootProject.file("src/${it.name}/generated/assets/dove_${it.name}/lang/en_us.json")
+        if (enUs.exists()) {
+            enUs.bufferedReader(Charsets.UTF_8).use {
+                val fromJson = gson.fromJson(it, JsonObject::class.java)
+                for ((k, v) in fromJson.asMap()) {
+                    en.add(k, v)
+                }
+            }
+        }
+    }
+    var out = rootProject.file("crowdin/en_us.json")
+    out.bufferedWriter(Charsets.UTF_8).use {
+        gson.toJson(en, it)
+    }
+}
+
 
 val buildAll by tasks.registering {
     subprojects.forEach {

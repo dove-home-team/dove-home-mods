@@ -40,27 +40,13 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Check directory exists
-        uses: andstor/file-existence-action@v3
-        id: check_directory
-        with:
-          files: "crowdin/"
-      - name: Copy Language by Crowdin
-        run: |
-          cp src/act/generated/assets/dove_act/lang/en_us.json crowdin/dove_act.json
-          cp src/pack/generated/assets/dove_pack/lang/en_us.json crowdin/dove_pack.json
-      - name: Commit and push changes
-        run: |
-          git add crowdin/
-          git commit -m "Language Update to Crowdin" || echo "No changes to commit"
-          git push
       - name: Crowdin action
         uses: crowdin/github-action@v2
         with:
           upload_sources: true
           download_translations: true
           source: |
-            crowdin/*.json
+            crowdin/en_us.json
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           DOVE_CROWDIN_PROJECT_ID: ${{ secrets.DOVE_CROWDIN_PROJECT_ID }}
