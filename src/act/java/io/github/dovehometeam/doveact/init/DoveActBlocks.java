@@ -31,15 +31,14 @@ public class DoveActBlocks {
                             .sound(SoundType.STONE))
                     .lang("Sandstone Crafting Table")
                     .blockstate((ctx, prov) -> {
-                        BlockModelBuilder it = prov.models().cube(
-                                ctx.getName(),
-                                ResourceLocation.fromNamespaceAndPath("minecraft", "block/sandstone_bottom"),
-                                Const.modLoc("block/minecraft/" + ctx.getName() + "_top"),
-                                Const.modLoc("block/minecraft/" + ctx.getName() + "_front"),
-                                Const.modLoc("block/minecraft/" + ctx.getName() + "_side"),
-                                Const.modLoc("block/minecraft/" + ctx.getName() + "_side"),
-                                Const.modLoc("block/minecraft/" + ctx.getName() + "_front")
-                        );
+                        var it = prov.models().withExistingParent(ctx.getName(), Const.modLoc("block/empty_crafting_table"))
+                                .texture("up", ResourceLocation.withDefaultNamespace("block/sandstone_top"))
+                                .texture("down", ResourceLocation.withDefaultNamespace("block/sandstone_bottom"))
+                                .texture("west", ResourceLocation.withDefaultNamespace("block/sandstone"))
+                                .texture("east", ResourceLocation.withDefaultNamespace("block/sandstone"))
+                                .texture("south", ResourceLocation.withDefaultNamespace("block/sandstone"))
+                                .texture("north", ResourceLocation.withDefaultNamespace("block/sandstone"));
+
                         prov.simpleBlock(ctx.get(), it);
                     })
                     .item()

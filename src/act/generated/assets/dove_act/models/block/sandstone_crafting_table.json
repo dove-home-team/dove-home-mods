@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "dove_act:block/empty_crafting_table",
   "textures": {
     "down": "minecraft:block/sandstone_bottom",
-    "east": "dove_act:block/minecraft/sandstone_crafting_table_side",
-    "north": "dove_act:block/minecraft/sandstone_crafting_table_front",
-    "south": "dove_act:block/minecraft/sandstone_crafting_table_side",
-    "up": "dove_act:block/minecraft/sandstone_crafting_table_top",
-    "west": "dove_act:block/minecraft/sandstone_crafting_table_front"
+    "east": "minecraft:block/sandstone",
+    "north": "minecraft:block/sandstone",
+    "south": "minecraft:block/sandstone",
+    "up": "minecraft:block/sandstone_top",
+    "west": "minecraft:block/sandstone"
   }
 }
