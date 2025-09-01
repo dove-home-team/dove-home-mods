@@ -43,8 +43,8 @@ jobs:
       - name: Copy Language by Crowdin
         run: |
           mkdir crowdin
-          cp src/dove_act/generated/assets/dove_act/lang/en_us.json crowdin/dove_act.json
-          cp src/dove_pack/generated/assets/dove_pack/lang/en_us.json crowdin/dove_pack.json
+          cp src/act/generated/assets/dove_act/lang/en_us.json crowdin/dove_act.json
+          cp src/pack/generated/assets/dove_pack/lang/en_us.json crowdin/dove_pack.json
       - name: Commit and push changes
         run: |
           git add crowdin/
