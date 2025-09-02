@@ -1,6 +1,9 @@
 package io.github.dovehometeam.doveact;
 
 import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.providers.ProviderType;
+import com.tterrag.registrate.util.entry.BlockEntry;
+import io.github.dovehometeam.doveact.common.block.SandstoneCraftingTableBlock;
 import io.github.dovehometeam.doveact.init.DoveActBlocks;
 import io.github.dovehometeam.doveact.init.DoveActMenus;
 import net.neoforged.bus.api.IEventBus;
@@ -17,5 +20,8 @@ public class DoveAct {
     public DoveAct(IEventBus modBus, ModContainer container) {
         DoveActBlocks.init();
         DoveActMenus.init();
+        REGISTRATE.addDataGenerator(ProviderType.LANG, prov -> {
+            prov.add(DoveActBlocks.SANDSTONE_CRAFTING_TABLE.get().key, "Sandstone Crafting Table");
+        });
     }
 }

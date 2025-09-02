@@ -33,9 +33,7 @@ public class DovePack {
         ModAttachments.init();
 
         AutoConfig.register(DovePackConfig.class, JanksonConfigSerializer::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, prov -> {
-            prov.add("container.crafting.sandstone", "Sandstone Crafting Table");
-        });
+
         REGISTRATE.addDataGenerator(ProviderType.RECIPE, prov -> {
             Map<DataIngredient, Pair<RecipeCategory, ? extends Item>> sandstoneSquare4 = Map.of(
                     DataIngredient.items(Items.SAND), Pair.of(RecipeCategory.MISC, Items.SANDSTONE),

@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import io.github.dovehometeam.doveact.client.menu.ActCraftingBaseMenu;
 import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -33,6 +34,7 @@ public abstract class ActCraftingTableBaseBlock<T extends ActCraftingTableBaseBl
 
     @Getter
     private final Set<String> groups;
+    public final String key;
     public final Component CONTAINER_TITLE;
 
 
@@ -43,7 +45,8 @@ public abstract class ActCraftingTableBaseBlock<T extends ActCraftingTableBaseBl
     public ActCraftingTableBaseBlock(Properties properties, String... groups) {
         super(properties);
         this.groups = new HashSet<>(Arrays.asList(groups));
-        CONTAINER_TITLE = Component.translatable("container.crafting." + groups[0]);
+        key = "container.crafting." + groups[0];
+        CONTAINER_TITLE = Component.translatable(key);
     }
 
 

@@ -518,30 +518,31 @@ tasks.register<Copy>("extractAllDependencies") {
     exclude("neoforge-**.jar")
 }
 
-//val clearLib = tasks.register<Delete>("clearLib") {
-//    delete("build/libs/**")
-//}
-val gson = GsonBuilder().setPrettyPrinting().create()
-val crowdin by tasks.registering {
-    val en = JsonObject()
+val clearLib by tasks.registering {
+    project.layout.buildDirectory.dir("libs").get().asFile.listFiles().forEach {
+        it.deleteRecursively()
+    }
     subprojects.forEach {
-        val enUs = rootProject.file("src/${it.name}/generated/assets/dove_${it.name}/lang/en_us.json")
-        if (enUs.exists()) {
-            enUs.bufferedReader(Charsets.UTF_8).use {
-                val fromJson = gson.fromJson(it, JsonObject::class.java)
-                for ((k, v) in fromJson.asMap()) {
-                    en.add(k, v)
-                }
-            }
+        it.layout.buildDirectory.dir("libs").get().asFile.listFiles().forEach {
+            it.deleteRecursively()
         }
     }
-    var out = rootProject.file("crowdin/en_us.json")
-    out.bufferedWriter(Charsets.UTF_8).use {
-        gson.toJson(en, it)
+
+}
+val metaAll by tasks.registering {
+    subprojects.forEach {
+        if (it.name.contains("java").not()) {
+            dependsOn(it.tasks.getByName("generateModMetadata"))
+        }
     }
 }
-
-
+val dataAll by tasks.registering {
+    subprojects.forEach {
+        if (it.name.contains("java").not()) {
+            dependsOn(it.tasks.getByName("runData"))
+        }
+    }
+}
 val buildAll by tasks.registering {
     subprojects.forEach {
         if (it.name.contains("java").not()) {
