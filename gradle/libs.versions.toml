@@ -63,6 +63,7 @@ scriptor-magicae-version="1.4.13-neoforge"
 kotlin-for-forge-version="5.9.0"
 finitewater-version="5541480"
 jei-version="19.22.1.316"
+krypton-fnp-version="0.2.20"
 [plugins]
 mod-dev-gradle = {id = "net.neoforged.moddev", version.ref = "mod-dev-gradle-version"}
 [libraries]
@@ -105,7 +106,7 @@ ae2fix={group="maven.modrinth", name="ae2fix", version.ref="ae2fix-version"}
 sophisticated-backpacks={group="maven.modrinth", name="sophisticated-backpacks", version.ref="sophisticated-backpacks-version"}
 sophisticated-core={group="maven.modrinth", name="sophisticated-core", version.ref="sophisticated-core-version"}
 extreme-reactors={group="maven.modrinth", name="extreme-reactors", version.ref="extreme-reactors-version"}
-
+krypton-fnp={group="maven.modrinth", name="krypton-fnp", version.ref="krypton-fnp-version"}
 
 # engine-room mod
 flywheel-api={group="dev.engine-room.flywheel", name = "flywheel-neoforge-api-1.21.1", version.ref="flywheel-version"}
@@ -177,7 +178,8 @@ dove_pack_runtimeOnly=[
     "ae2fix",
     "finitewater",
     "kotlin-for-forge",
-    "jei"
+    "jei",
+    "krypton-fnp"
 ]
 dove_pack_prepose=[
     "registrate", "ponder",

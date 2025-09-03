@@ -48,8 +48,6 @@ allprojects {
             .replace("{MONTH}", date.monthValue.toString())
             .replace("{DAY}", date.dayOfMonth.toString())
             .replace("{HOUR}", date.hour.toString())
-            .replace("{MINUTE}", date.minute.toString())
-            .replace("{SECOND}", date.second.toString())
         group = modGroupId
     }
 
@@ -492,6 +490,7 @@ subprojects {
 
 
 tasks.register<Copy>("extractAllDependencies") {
+    setGroup("dove")
     var destDir = layout.buildDirectory.dir("extractMods")
     destDir.get().asFile.deleteRecursively()
     val uniqueJars = subprojects
@@ -519,6 +518,7 @@ tasks.register<Copy>("extractAllDependencies") {
 }
 
 val clearLib by tasks.registering {
+    setGroup("dove")
     project.layout.buildDirectory.dir("libs").get().asFile.listFiles().forEach {
         it.deleteRecursively()
     }
@@ -530,6 +530,7 @@ val clearLib by tasks.registering {
 
 }
 val metaAll by tasks.registering {
+    setGroup("dove")
     subprojects.forEach {
         if (it.name.contains("java").not()) {
             dependsOn(it.tasks.getByName("generateModMetadata"))
@@ -537,6 +538,7 @@ val metaAll by tasks.registering {
     }
 }
 val dataAll by tasks.registering {
+    setGroup("dove")
     subprojects.forEach {
         if (it.name.contains("java").not()) {
             dependsOn(it.tasks.getByName("runData"))
@@ -544,6 +546,7 @@ val dataAll by tasks.registering {
     }
 }
 val buildAll by tasks.registering {
+    setGroup("dove")
     subprojects.forEach {
         if (it.name.contains("java").not()) {
             dependsOn(it.tasks.build)
