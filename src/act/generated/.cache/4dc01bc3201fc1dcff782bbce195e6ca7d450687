@@ -1,9 +1,15 @@
-// 1.21.1	2025-09-02T04:51:36.2420502	Registrate Provider for dove_act [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-09-04T00:49:38.2899161	Registrate Provider for dove_act [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+24c38931fd8ba5618ea4a87d192285f450780169 assets/dove_act/blockstates/iron_crafting_table.json
 55479f9c9469946e2d8626e1b91bba6f132d5845 assets/dove_act/blockstates/sandstone_crafting_table.json
-f5677af7eebbbaaa60b6e71bf6d7d665753099d3 assets/dove_act/lang/en_ud.json
-e2f73701a4a4a9977fb6d539d728151fa47b4d2b assets/dove_act/lang/en_us.json
+f46fa9eb9d668d61a6bf38ab6d9e70d202432f94 assets/dove_act/lang/en_ud.json
+13d8529fa36a6af127c04cf82d1fb94bdebe2bb4 assets/dove_act/lang/en_us.json
+ac1ed27203df602224a9de1cd80273ad2ae1a305 assets/dove_act/models/block/iron_crafting_table.json
 e36b25e13d78be69f87103fbdf0f7077c602d28f assets/dove_act/models/block/sandstone_crafting_table.json
+51be4adf01687513042ee1476fe353657722648d assets/dove_act/models/item/iron_crafting_table.json
 e7858a9f7645e7fcac544c2284dc21fee24b5d72 assets/dove_act/models/item/sandstone_crafting_table.json
+b4b153b2d1705a88a976b319bd3ac387b744fb6f data/dove_act/advancement/recipes/misc/iron_crafting_table_iron.json
 466e5140a7b26d6b6f2bac667f1ef0fe838a4a79 data/dove_act/advancement/recipes/misc/sandstone_crafting_table_sandstone.json
+18f843fab825cdb9fce21738e43122f54534dd30 data/dove_act/loot_table/blocks/iron_crafting_table.json
 9038b51d2f12c4e82afd12449a83e0f1367e3405 data/dove_act/loot_table/blocks/sandstone_crafting_table.json
+d5e5e29a3584642c00c4aea3bbf9b69edebe8df4 data/dove_act/recipe/iron_crafting_table_iron.json
 b9457b1ee0e17880653b10ed246a4a5a1bf81f40 data/dove_act/recipe/sandstone_crafting_table_sandstone.json
