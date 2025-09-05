@@ -1,10 +1,10 @@
 {
-  "block.dove_act.diamond_crafting_table": "Diamond Crafting Table",
-  "block.dove_act.gold_crafting_table": "Gold Crafting Table",
-  "block.dove_act.iron_crafting_table": "Iron Crafting Table",
-  "block.dove_act.sandstone_crafting_table": "Sandstone Crafting Table",
-  "container.crafting.diamond": "Diamond Crafting Table",
-  "container.crafting.gold": "Gold Crafting Table",
-  "container.crafting.iron": "Iron Crafting Table",
-  "container.crafting.sandstone": "Sandstone Crafting Table"
+  "block.dove_act.diamond_crafting_table": "鉆石工作檯",
+  "block.dove_act.gold_crafting_table": "黃金工作檯",
+  "block.dove_act.iron_crafting_table": "鉄製工作檯",
+  "block.dove_act.sandstone_crafting_table": "砂岩工作檯",
+  "container.crafting.diamond": "鉆石工作檯",
+  "container.crafting.gold": "黃金工作檯",
+  "container.crafting.iron": "鉄製工作檯",
+  "container.crafting.sandstone": "砂岩工作檯"
 }
