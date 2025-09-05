@@ -48,7 +48,7 @@ file("crowdin.yml").bufferedWriter(Charsets.UTF_8).use { out ->
             out.newLine()
             out.write("    dest: /dove-${id}.en-us.json")
             out.newLine()
-            out.write("    translation: //src/${id}/resources/assets/dove_${id}/lang/%locale_with_underscore%.json")
+            out.write("    translation: /src/${id}/resources/assets/dove_${id}/lang/%locale_with_underscore%.json")
             out.newLine()
         }
     }

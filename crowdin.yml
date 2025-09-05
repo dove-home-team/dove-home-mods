@@ -4,7 +4,7 @@ preserve_hierarchy: true
 files:
   - source: /src/act/generated/assets/dove_act/lang/en_us.json
     dest: /dove-act.en-us.json
-    translation: //src/act/resources/assets/dove_act/lang/%locale_with_underscore%.json
+    translation: /src/act/resources/assets/dove_act/lang/%locale_with_underscore%.json
   - source: /src/botania/generated/assets/dove_botania/lang/en_us.json
     dest: /dove-botania.en-us.json
-    translation: //src/botania/resources/assets/dove_botania/lang/%locale_with_underscore%.json
+    translation: /src/botania/resources/assets/dove_botania/lang/%locale_with_underscore%.json
