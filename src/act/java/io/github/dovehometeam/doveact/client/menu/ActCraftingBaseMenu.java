@@ -28,23 +28,25 @@ import java.util.function.Supplier;
  */
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public abstract class ActCraftingBaseMenu<T extends ActCraftingTableBaseBlock<T>> extends RecipeBookMenu<CraftingInput, CraftingRecipe> {
+public class ActCraftingBaseMenu extends RecipeBookMenu<CraftingInput, CraftingRecipe> {
     public final ContainerLevelAccess access;
     public final CraftingContainer craftSlots = new TransientCraftingContainer(this, 3, 3);
     public final ResultContainer resultSlots =  new ResultContainer();
     public final Player player;
     public boolean placingRecipe;
+    public final Supplier<ActCraftingTableBaseBlock> block;
 
     @SuppressWarnings("unused")
-    public ActCraftingBaseMenu(MenuType<? extends ActCraftingBaseMenu<T>> type, int containerId, Inventory playerInventory) {
-        this(type, containerId, playerInventory, ContainerLevelAccess.NULL);
+    public ActCraftingBaseMenu(MenuType<ActCraftingBaseMenu> type, int containerId, Inventory playerInventory, Supplier<ActCraftingTableBaseBlock> block) {
+        this(type, containerId, playerInventory, ContainerLevelAccess.NULL, block);
     }
 
-    public ActCraftingBaseMenu(MenuType<? extends ActCraftingBaseMenu<T>> type, int containerId, Inventory playerInventory, ContainerLevelAccess access) {
+    public ActCraftingBaseMenu(MenuType<ActCraftingBaseMenu> type, int containerId, Inventory playerInventory, ContainerLevelAccess access, Supplier<ActCraftingTableBaseBlock> block) {
         super(type, containerId);
 
         this.access = access;
         this.player = playerInventory.player;
+        this.block = block;
         this.addSlot(new ResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
         for(int i = 0; i < 3; ++i) {
@@ -65,7 +67,7 @@ public abstract class ActCraftingBaseMenu<T extends ActCraftingTableBaseBlock<T>
 
     }
 
-    protected static void slotChangedCraftingGrid(ActCraftingBaseMenu<?> menu, Level level, Player player, CraftingContainer craftSlots, ResultContainer resultSlots, @Nullable RecipeHolder<CraftingRecipe> recipe) {
+    protected static void slotChangedCraftingGrid(ActCraftingBaseMenu menu, Level level, Player player, CraftingContainer craftSlots, ResultContainer resultSlots, @Nullable RecipeHolder<CraftingRecipe> recipe) {
         if (!level.isClientSide) {
             CraftingInput craftinginput = craftSlots.asCraftInput();
             ServerPlayer serverplayer = (ServerPlayer)player;
@@ -75,7 +77,7 @@ public abstract class ActCraftingBaseMenu<T extends ActCraftingTableBaseBlock<T>
                                     .getServer())
                             .getRecipeManager()
                             .getRecipeFor(RecipeType.CRAFTING, craftinginput, level, recipe)
-                            .filter(holder -> menu.block().get()
+                            .filter(holder -> menu.block().get().getGroups().contains("*") || menu.block().get()
                                     .getGroups()
                                     .contains(holder.value().getGroup()));
             if (optional.isPresent()) {
@@ -134,7 +136,9 @@ public abstract class ActCraftingBaseMenu<T extends ActCraftingTableBaseBlock<T>
         return stillValid(this.access, player, block().get());
     }
 
-    public abstract Supplier<T> block();
+    public Supplier<ActCraftingTableBaseBlock> block() {
+        return this.block;
+    }
 
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;

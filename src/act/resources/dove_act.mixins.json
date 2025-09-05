@@ -2,7 +2,13 @@
   "required": true,
   "package": "io.github.dovehometeam.doveact.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-  ],
-  "minVersion": "0.8"
+  "mixins": [],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
 }

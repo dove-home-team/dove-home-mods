@@ -1,0 +1,11 @@
+{
+  "parent": "dove_act:block/empty_crafting_table",
+  "textures": {
+    "down": "minecraft:block/sandstone_bottom",
+    "east": "minecraft:block/sandstone",
+    "north": "minecraft:block/sandstone",
+    "south": "minecraft:block/sandstone",
+    "up": "minecraft:block/sandstone_top",
+    "west": "minecraft:block/sandstone"
+  }
+}

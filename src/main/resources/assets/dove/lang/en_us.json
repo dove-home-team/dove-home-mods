@@ -1,0 +1,13 @@
+{
+  "itemGroup.dove": "Example Mod Tab",
+  "block.dove.example_block": "Example Block",
+  "item.dove.example_item": "Example Item",
+
+  "dove.configuration.title": "dove Configs",
+  "dove.configuration.section.dove.common.toml": "dove Configs",
+  "dove.configuration.section.dove.common.toml.title": "dove Configs",
+  "dove.configuration.items": "Item List",
+  "dove.configuration.logDirtBlock": "Log Dirt Block",
+  "dove.configuration.magicNumberIntroduction": "Magic Number Text",
+  "dove.configuration.magicNumber": "Magic Number"
+}

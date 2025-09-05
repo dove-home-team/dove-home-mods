@@ -24,7 +24,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ActCraftingBaseScreen<T extends ActCraftingTableBaseBlock<T>,M extends ActCraftingBaseMenu<T>> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
+public class ActCraftingBaseScreen<T extends ActCraftingTableBaseBlock,M extends ActCraftingBaseMenu> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
     private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation
             .withDefaultNamespace("textures/gui/container/crafting_table.png");
     @Getter

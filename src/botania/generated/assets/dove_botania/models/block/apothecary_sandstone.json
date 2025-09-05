@@ -1,0 +1,9 @@
+{
+  "parent": "dove_botania:block/botania_petal_apothecary",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "dove_botania:block/apothecary_sandstone_bottom",
+    "side": "dove_botania:block/apothecary_sandstone_side",
+    "top": "dove_botania:block/apothecary_sandstone_top"
+  }
+}

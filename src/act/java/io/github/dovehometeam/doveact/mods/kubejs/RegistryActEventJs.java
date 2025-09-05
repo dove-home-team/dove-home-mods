@@ -24,7 +24,7 @@ public class RegistryActEventJs implements KubeEvent {
     )
     public void addGroup(ItemStack item, String... groups) {
         Item i = item.getItem();
-        if (i instanceof BlockItem bItem && bItem.getBlock() instanceof ActCraftingTableBaseBlock<?> aBlock) {
+        if (i instanceof BlockItem bItem && bItem.getBlock() instanceof ActCraftingTableBaseBlock aBlock) {
             aBlock.getGroups().addAll(List.of(groups));
         }
     }

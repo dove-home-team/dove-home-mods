@@ -1,0 +1,11 @@
+{
+  "parent": "dove_act:block/empty_crafting_table",
+  "textures": {
+    "down": "minecraft:block/diamond_block",
+    "east": "minecraft:block/diamond_block",
+    "north": "minecraft:block/diamond_block",
+    "south": "minecraft:block/diamond_block",
+    "up": "minecraft:block/diamond_block",
+    "west": "minecraft:block/diamond_block"
+  }
+}
