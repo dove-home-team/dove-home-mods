@@ -12,14 +12,19 @@ import lombok.val;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.function.TriFunction;
 
 import java.util.function.Supplier;
 
-import static io.github.dovehometeam.doveact.DoveactC.REGISTRATE;
+import static io.github.dovehometeam.doveact.Doveact.REGISTRATE;
 
 /**
  * @author baka4n

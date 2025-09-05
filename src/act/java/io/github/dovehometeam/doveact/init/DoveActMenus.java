@@ -11,7 +11,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
 
-import static io.github.dovehometeam.doveact.DoveactC.REGISTRATE;
+import static io.github.dovehometeam.doveact.Doveact.REGISTRATE;
 
 /**
  * @author baka4n
