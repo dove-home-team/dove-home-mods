@@ -1,0 +1,10 @@
+{
+  "block.dove_act.diamond_crafting_table": "钻石工作台",
+  "block.dove_act.gold_crafting_table": "黄金工作台",
+  "block.dove_act.iron_crafting_table": "铁制工作台",
+  "block.dove_act.sandstone_crafting_table": "砂岩工作台",
+  "container.crafting.diamond": "钻石工作台",
+  "container.crafting.gold": "黄金工作台",
+  "container.crafting.iron": "铁制工作台",
+  "container.crafting.sandstone": "砂岩工作台"
+}
