@@ -67,10 +67,6 @@ jobs:
       - name: Gmm with Gradle
         run: ./gradlew gmm
 
-      - name: Set up Git
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - name: Crowdin action
         uses: crowdin/github-action@v2
         with:
@@ -83,3 +79,4 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
+      
