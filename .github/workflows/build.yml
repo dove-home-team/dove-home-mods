@@ -29,6 +29,7 @@ on:
     - cron: "0 21 * * *"
     - cron: "0 22 * * *"
     - cron: "0 23 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -37,6 +38,13 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: Delete workflow runs for current repo
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          retain_days: 0
+          keep_minimum_runs: 3
+          repository: '${{ github.repository }}'
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
