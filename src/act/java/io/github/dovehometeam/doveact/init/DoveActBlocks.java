@@ -39,6 +39,7 @@ public class DoveActBlocks {
             GLOWSTONE_CRAFTING_TABLE,
             IRON_CRAFTING_TABLE,
             GOLD_CRAFTING_TABLE,
+            LAPIS_CRATING_TABLE,
             DIAMOND_CRAFTING_TABLE;
 
     static {
@@ -65,7 +66,7 @@ public class DoveActBlocks {
             GLOWSTONE_CRAFTING_TABLE = registerAct(
                     "glowstone",
                     DoveActMenus.GLOWSTONE_CRAFTING,
-                    p -> p,
+                    p -> p.mapColor(MapColor.SAND).strength(0.3F).sound(SoundType.GLASS),
                     glowstone,glowstone,glowstone,glowstone,glowstone,glowstone,
                     () -> DataIngredient.items(Items.GLOWSTONE)
             );
@@ -88,6 +89,16 @@ public class DoveActBlocks {
                     p -> p.mapColor(MapColor.GOLD).strength(3, 6).sound(SoundType.METAL),
                     gold, gold, gold, gold, gold, gold,
                     () -> DataIngredient.tag(Tags.Items.INGOTS_GOLD)
+            );
+        }
+        {
+            val lapis = ResourceLocation.withDefaultNamespace("block/lapis_block");
+            LAPIS_CRATING_TABLE = registerAct(
+                    "lapis",
+                    DoveActMenus.LAPIS_CRATING,
+                    p -> p,
+                    lapis, lapis, lapis, lapis, lapis, lapis,
+                    () -> DataIngredient.tag(Tags.Items.GEMS_LAPIS)
             );
         }
         {

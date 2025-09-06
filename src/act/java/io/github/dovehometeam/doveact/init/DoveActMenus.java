@@ -25,6 +25,8 @@ public class DoveActMenus {
             registerAct("iron_crafting", DoveActBlocks.IRON_CRAFTING_TABLE);
     public static final MenuEntry<ActCraftingBaseMenu> GOLD_CRAFTING =
             registerAct("gold_crafting", DoveActBlocks.GOLD_CRAFTING_TABLE);
+    public static final MenuEntry<ActCraftingBaseMenu> LAPIS_CRATING =
+            registerAct("lapis_crafting", DoveActBlocks.LAPIS_CRATING_TABLE);
      public static final MenuEntry<ActCraftingBaseMenu> DIAMOND_CRAFTING =
             registerAct("diamond_crafting", DoveActBlocks.DIAMOND_CRAFTING_TABLE);
      public static final MenuEntry<ActCraftingBaseMenu> STONE_CRAFTING =
