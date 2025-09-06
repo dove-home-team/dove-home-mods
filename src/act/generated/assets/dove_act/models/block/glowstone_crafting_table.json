@@ -1,0 +1,11 @@
+{
+  "parent": "dove_act:block/empty_crafting_table",
+  "textures": {
+    "down": "minecraft:block/glowstone",
+    "east": "minecraft:block/glowstone",
+    "north": "minecraft:block/glowstone",
+    "south": "minecraft:block/glowstone",
+    "up": "minecraft:block/glowstone",
+    "west": "minecraft:block/glowstone"
+  }
+}

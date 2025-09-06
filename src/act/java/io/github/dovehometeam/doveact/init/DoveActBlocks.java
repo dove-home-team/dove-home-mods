@@ -14,6 +14,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -34,6 +35,8 @@ public class DoveActBlocks {
 
     public static final BlockEntry<ActCraftingTableBaseBlock>
             SANDSTONE_CRAFTING_TABLE,
+            STONE_CRAFTING_TABLE,
+            GLOWSTONE_CRAFTING_TABLE,
             IRON_CRAFTING_TABLE,
             GOLD_CRAFTING_TABLE,
             DIAMOND_CRAFTING_TABLE;
@@ -49,6 +52,22 @@ public class DoveActBlocks {
                     sandstone.withSuffix("_bottom"),
                     sandstone, sandstone, sandstone, sandstone,
                     () -> DataIngredient.tag(Tags.Items.SANDSTONE_BLOCKS)
+            );
+            val stone = ResourceLocation.withDefaultNamespace("block/stone");
+            STONE_CRAFTING_TABLE = registerAct(
+                    "stone",
+                    DoveActMenus.STONE_CRAFTING,
+                    p -> p.mapColor(MapColor.STONE).strength(1.5F, 6F).sound(SoundType.STONE),
+                    stone, stone, stone, stone, stone, stone,
+                    () -> DataIngredient.items(Items.STONE_BRICKS)
+            );
+            val glowstone = ResourceLocation.withDefaultNamespace("block/glowstone");
+            GLOWSTONE_CRAFTING_TABLE = registerAct(
+                    "glowstone",
+                    DoveActMenus.GLOWSTONE_CRAFTING,
+                    p -> p,
+                    glowstone,glowstone,glowstone,glowstone,glowstone,glowstone,
+                    () -> DataIngredient.items(Items.GLOWSTONE)
             );
         }
         {

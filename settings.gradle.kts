@@ -14,7 +14,7 @@ var projects = mapOf(
     "pack" to "Mod Pack",
     "botania" to "Botania",
 )
- projects.forEach { (id, name) ->
+projects.forEach { (id, name) ->
      val replaceProperties = mapOf(
          "\${id}" to id,
          "\${sid}" to id.replace("_", ""),
