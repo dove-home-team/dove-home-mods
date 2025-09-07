@@ -4,6 +4,7 @@ plugins {
     `java-library`
     `maven-publish`
     id("net.neoforged.moddev") version("2.0.107")
+    id("com.modrinth.minotaur") version "2.+"
     idea
 }
 
@@ -85,6 +86,11 @@ allprojects {
             dir(rootProject.file("libs"))
         }
     }
+    apply(plugin = "com.modrinth.minotaur")
+
+    modrinth {
+        token.set(System.getenv("MODRINTH_TOKEN"))
+    }
 }
 
 val parchmentMinecraftVersion: String by rootProject
@@ -118,6 +124,21 @@ subprojects {
     }
 
     java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+    val modrinth: String by project
+    val type: String by project
+    val gameVersions: String by project
+    val loaders: String by project
+
+    modrinth {
+        projectId.set(modrinth)
+        versionNumber.set(modVersion)
+        versionType.set(type)
+        uploadFile.set(tasks.jar)
+        this.gameVersions.set(gameVersions.split(","))
+        this.loaders.set(loaders.split(","))
+    }
+
 
     neoForge {
         version = neoVersion
