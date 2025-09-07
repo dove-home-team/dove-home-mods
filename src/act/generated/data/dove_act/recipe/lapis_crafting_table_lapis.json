@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "lapis",
+  "key": {
+    "X": {
+      "tag": "c:gems/lapis"
+    }
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dove_act:lapis_crafting_table"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "dove_act:block/empty_crafting_table",
+  "textures": {
+    "down": "minecraft:block/emerald_block",
+    "east": "minecraft:block/emerald_block",
+    "north": "minecraft:block/emerald_block",
+    "particle": "minecraft:block/emerald_block",
+    "south": "minecraft:block/emerald_block",
+    "up": "minecraft:block/emerald_block",
+    "west": "minecraft:block/emerald_block"
+  }
+}

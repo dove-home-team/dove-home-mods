@@ -4,6 +4,7 @@
     "down": "minecraft:block/glowstone",
     "east": "minecraft:block/glowstone",
     "north": "minecraft:block/glowstone",
+    "particle": "minecraft:block/glowstone",
     "south": "minecraft:block/glowstone",
     "up": "minecraft:block/glowstone",
     "west": "minecraft:block/glowstone"

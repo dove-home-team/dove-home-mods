@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "netherite",
+  "key": {
+    "X": {
+      "tag": "c:ingots/netherite"
+    }
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dove_act:netherite_crafting_table"
+  }
+}

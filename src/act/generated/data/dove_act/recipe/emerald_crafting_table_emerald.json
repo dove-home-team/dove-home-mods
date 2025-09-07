@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "emerald",
+  "key": {
+    "X": {
+      "tag": "c:gems/emerald"
+    }
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dove_act:emerald_crafting_table"
+  }
+}

@@ -4,6 +4,7 @@
     "down": "minecraft:block/sandstone_bottom",
     "east": "minecraft:block/sandstone",
     "north": "minecraft:block/sandstone",
+    "particle": "minecraft:block/sandstone_bottom",
     "south": "minecraft:block/sandstone",
     "up": "minecraft:block/sandstone_top",
     "west": "minecraft:block/sandstone"

@@ -12,16 +12,11 @@ import lombok.val;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.function.TriFunction;
 
 import java.util.function.Supplier;
 
@@ -40,7 +35,10 @@ public class DoveActBlocks {
             IRON_CRAFTING_TABLE,
             GOLD_CRAFTING_TABLE,
             LAPIS_CRATING_TABLE,
-            DIAMOND_CRAFTING_TABLE;
+            EMERALD_CRAFTING_TABLE,
+            DIAMOND_CRAFTING_TABLE,
+            NETHERITE_CRAFTING_TABLE
+    ;
 
     static {
         {
@@ -96,9 +94,19 @@ public class DoveActBlocks {
             LAPIS_CRATING_TABLE = registerAct(
                     "lapis",
                     DoveActMenus.LAPIS_CRATING,
-                    p -> p,
+                    p -> p.mapColor(MapColor.LAPIS).strength(3, 3),
                     lapis, lapis, lapis, lapis, lapis, lapis,
                     () -> DataIngredient.tag(Tags.Items.GEMS_LAPIS)
+            );
+        }
+        {
+            val emerald = ResourceLocation.withDefaultNamespace("block/emerald_block");
+            EMERALD_CRAFTING_TABLE = registerAct(
+                    "emerald",
+                    DoveActMenus.EMERALD_CRAFTING,
+                    p -> p.mapColor(MapColor.EMERALD).strength(5, 6).sound(SoundType.METAL),
+                    emerald, emerald, emerald, emerald, emerald, emerald,
+                    () -> DataIngredient.tag(Tags.Items.GEMS_EMERALD)
             );
         }
         {
@@ -106,9 +114,19 @@ public class DoveActBlocks {
             DIAMOND_CRAFTING_TABLE = registerAct(
                     "diamond",
                     DoveActMenus.DIAMOND_CRAFTING,
-                    p -> p.mapColor(MapColor.DIAMOND).strength(3, 6).sound(SoundType.METAL),
+                    p -> p.mapColor(MapColor.DIAMOND).strength(5, 6).sound(SoundType.METAL),
                     diamond, diamond, diamond, diamond, diamond, diamond,
                     () -> DataIngredient.tag(Tags.Items.GEMS_DIAMOND)
+            );
+        }
+        {
+            val netherite = ResourceLocation.withDefaultNamespace("block/netherite_block");
+            NETHERITE_CRAFTING_TABLE = registerAct(
+                    "netherite",
+                    DoveActMenus.NETHERITE_CRAFTING,
+                    p -> p.mapColor(MapColor.COLOR_BLACK).ignitedByLava().strength(50, 1200).sound(SoundType.NETHERITE_BLOCK),
+                    netherite, netherite, netherite, netherite, netherite, netherite,
+                    () -> DataIngredient.tag(Tags.Items.INGOTS_NETHERITE)
             );
         }
 
@@ -136,7 +154,8 @@ public class DoveActBlocks {
                             .texture("west", west)
                             .texture("east", east)
                             .texture("south", south)
-                            .texture("north", north);
+                            .texture("north", north)
+                            .texture("particle", down);
 
                     prov.simpleBlock(ctx.get(), it);
                 })

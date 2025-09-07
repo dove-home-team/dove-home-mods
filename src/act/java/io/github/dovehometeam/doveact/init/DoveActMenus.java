@@ -27,13 +27,18 @@ public class DoveActMenus {
             registerAct("gold_crafting", DoveActBlocks.GOLD_CRAFTING_TABLE);
     public static final MenuEntry<ActCraftingBaseMenu> LAPIS_CRATING =
             registerAct("lapis_crafting", DoveActBlocks.LAPIS_CRATING_TABLE);
+    public static final MenuEntry<ActCraftingBaseMenu> EMERALD_CRAFTING =
+            registerAct("emerald_crafting", DoveActBlocks.EMERALD_CRAFTING_TABLE);
      public static final MenuEntry<ActCraftingBaseMenu> DIAMOND_CRAFTING =
             registerAct("diamond_crafting", DoveActBlocks.DIAMOND_CRAFTING_TABLE);
      public static final MenuEntry<ActCraftingBaseMenu> STONE_CRAFTING =
              registerAct("stone_crafting", DoveActBlocks.STONE_CRAFTING_TABLE);
      public static final MenuEntry<ActCraftingBaseMenu> GLOWSTONE_CRAFTING =
              registerAct("glowstone_crafting", DoveActBlocks.GLOWSTONE_CRAFTING_TABLE);
+     public static final MenuEntry<ActCraftingBaseMenu> NETHERITE_CRAFTING =
+             registerAct("netherite_crafting", DoveActBlocks.NETHERITE_CRAFTING_TABLE);
 
+    @SuppressWarnings("unchecked")
     public static
     MenuEntry<ActCraftingBaseMenu> registerAct(
             String name,

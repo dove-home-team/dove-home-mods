@@ -2,11 +2,11 @@
 	"format_version": "1.21.1",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
+    "render_type": "cutout",
 	"textures": {
 		"east_south": "dove_act:block/minecraft/empty_crafting_table_side",
 		"north_west": "dove_act:block/minecraft/empty_crafting_table_front",
-		"up": "dove_act:block/minecraft/empty_crafting_table_top",
-		"particle": "block/sandstone_bottom"
+		"up_empty": "dove_act:block/minecraft/empty_crafting_table_top"
 	},
 	"elements": [
 		{
@@ -29,7 +29,7 @@
 				"east": {"uv": [0, 0, 16, 16], "texture": "#east_south", "cullface": "east"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#east_south", "cullface": "south"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#north_west", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#up", "cullface": "up"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#up_empty", "cullface": "up"},
 				"down": {"uv": [0, 0, 16, 16], "texture": "#missing", "cullface": "down"}
 			}
 		}
