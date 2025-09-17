@@ -1,3 +1,4 @@
+import net.neoforged.moddevgradle.dsl.RunModel
 import kotlin.io.path.createDirectories
 
 plugins {
@@ -93,6 +94,13 @@ allprojects {
     }
 }
 
+fun RunModel.configureCommonRun(modId: String) {
+    gameDirectory.set(layout.buildDirectory.dir("run-${this.name}").get().asFile.apply {
+        this.mkdirs()
+    })
+    systemProperty("neoforge.enabledGameTestNamespaces", modId)
+}
+
 val parchmentMinecraftVersion: String by rootProject
 val parchmentMappingsVersion: String by rootProject
 val neoVersion: String by rootProject
@@ -148,22 +156,18 @@ subprojects {
             minecraftVersion = parchmentMinecraftVersion
         }
 
+
+
         runs {
             register("client") {
                 client()
-
-                gameDirectory.set(layout.buildDirectory.dir("run-client").get().asFile.apply {
-                    this.mkdirs()
-                })
-                systemProperty("neoforge.enabledGameTestNamespaces", modId)
+                configureCommonRun(modId)
             }
             register("server") {
                 server()
-                gameDirectory.set(layout.buildDirectory.dir("run-server").get().asFile.apply {
-                    this.mkdirs()
-                })
+                configureCommonRun(modId)
                 programArgument("--nogui")
-                systemProperty("neoforge.enabledGameTestNamespaces", modId)
+
             }
             register("data") {
                 data()
@@ -240,9 +244,9 @@ subprojects {
                 from(components["java"])
             }
             repositories {
-                maven {
-                    url = uri("file://${project.layout.buildDirectory.dir("repo").get().asFile.absolutePath}")
-                }
+//                maven {
+//                    url = uri("file://${project.layout.buildDirectory.dir("repo").get().asFile.absolutePath}")
+//                }
             }
         }
     }

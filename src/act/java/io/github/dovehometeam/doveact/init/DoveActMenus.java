@@ -55,7 +55,7 @@ public class DoveActMenus {
                     }
                     return new ActCraftingBaseMenu((MenuType<ActCraftingBaseMenu>) REGISTRATE.get(name, Registries.MENU).get(), windowId, inv, access, block);
                 },
-                () ->ActCraftingBaseScreen<ActCraftingBaseMenu>::new
+                () ->ActCraftingBaseScreen::new
         ).register();
     }
 

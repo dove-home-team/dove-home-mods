@@ -23,14 +23,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ActCraftingBaseScreen<M extends ActCraftingBaseMenu> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
+public class ActCraftingBaseScreen extends AbstractContainerScreen<ActCraftingBaseMenu> implements RecipeUpdateListener {
     private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation
             .withDefaultNamespace("textures/gui/container/crafting_table.png");
     @Getter
     private final RecipeBookComponent recipeBookComponent = new RecipeBookComponent();
     private boolean widthTooNarrow;
 
-    public ActCraftingBaseScreen(M menu, Inventory playerInventory, Component title) {
+    public ActCraftingBaseScreen(ActCraftingBaseMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
 
