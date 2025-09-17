@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-07T09:50:28.8279949	Registrate Provider for dove_act [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-09-17T08:52:25.3182206	Registrate Provider for dove_act [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 e423c35afe6f393aab8eaa0a1b7ecc0729dd96da assets/dove_act/blockstates/diamond_crafting_table.json
 d84e44c3c99b8ca15e483e53447b3354739488b9 assets/dove_act/blockstates/emerald_crafting_table.json
 3aa25c622ddb4a887be0ba08ce2c8fbc5f6b5260 assets/dove_act/blockstates/glowstone_crafting_table.json

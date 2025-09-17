@@ -1,7 +1,6 @@
 package io.github.dovehometeam.doveact.client.screen;
 
 import io.github.dovehometeam.doveact.client.menu.ActCraftingBaseMenu;
-import io.github.dovehometeam.doveact.common.block.ActCraftingTableBaseBlock;
 
 import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -24,7 +23,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ActCraftingBaseScreen<T extends ActCraftingTableBaseBlock,M extends ActCraftingBaseMenu> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
+public class ActCraftingBaseScreen<M extends ActCraftingBaseMenu> extends AbstractContainerScreen<M> implements RecipeUpdateListener {
     private static final ResourceLocation CRAFTING_TABLE_LOCATION = ResourceLocation
             .withDefaultNamespace("textures/gui/container/crafting_table.png");
     @Getter

@@ -6,5 +6,5 @@ dependencies {
     jarJar("com.tterrag.registrate:Registrate:MC1.21-1.3.0+62")
     compileOnly("dev.latvian.mods:kubejs-neoforge:2101.7.2-build.249")
     localRuntime("dev.latvian.mods:kubejs-neoforge:2101.7.2-build.249")
-    implementation(":botania-neoforge-1.21.1-451-20250904.201639-58@jar")
+    implementation(":botania-neoforge-1.21.1-451-SNAPSHOT@jar")
 }
