@@ -8,6 +8,8 @@
 **/run/
 **/.xcodemap/
 
+!build/extract/profile.json
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

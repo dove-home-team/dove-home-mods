@@ -1,0 +1,18 @@
+{
+  "mods": {
+    "dove_lib": "0.0.1",
+    "kubejs": "2101.7.2-build.261",
+    "rhino": "2101.2.7-build.77",
+    "architectury": "13.0.8",
+    "ponder": "1.0.56",
+    "dove_act": "0.0.2",
+    "botania": "451-SNAPSHOT",
+    "dove_botania": "0.0.1",
+    "cloth_config": "15.0.140",
+    "curios": "9.5.1+1.21.1",
+    "flywheel": "1.0.4-30",
+    "create": "6.0.7",
+    "patchouli": "1.21.1-92-NEOFORGE",
+    "vanillin": "1.1.3-30"
+  }
+}
