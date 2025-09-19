@@ -2,7 +2,6 @@ import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import net.neoforged.moddevgradle.dsl.RunModel
 import org.slf4j.event.Level
-import java.util.function.Consumer
 import java.util.jar.JarFile
 import kotlin.io.path.createDirectories
 
@@ -134,6 +133,9 @@ subprojects {
     val localRuntime by configurations.creating {
         configurations.runtimeClasspath.get().extendsFrom(this)
     }
+    val modImplementation by configurations.creating {
+        configurations.implementation.get().extendsFrom(this)
+    }
 
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.38")
@@ -183,54 +185,51 @@ tasks.register("gmm") {
     }
 }
 
-val gson = GsonBuilder().setPrettyPrinting().create()!!
+val extractAllDependencies = extractAllDependencies()
+val changeLogExtract = changeLogExtract()
 
-data class Mod(
-    @SerializedName("modid")
-    var modid: String,
-    @SerializedName("version")
-    var version: String,
-)
-
-data class Data(
-    @SerializedName("mods")
-    var mods: ArrayList<Mod>,
-)
-
-val extractAllDependencies by tasks.registering(Copy::class) {
-    var extractDir = layout.buildDirectory.dir("extract").get()
-    var changelog = file("changelog.md")
-    if (changelog.exists().not()) {
-        changelog.createNewFile()
-    }
-    extractDir.asFile.mkdirs()
-    var profile = extractDir.file("profile.json").asFile
-    if (profile.exists().not()) {
-        profile.bufferedWriter(Charsets.UTF_8).use {
-            gson.toJson(Data(arrayListOf()), it)
-        }
-    }
-    val data = profile.bufferedReader(Charsets.UTF_8).use {
-        gson.fromJson(it, Data::class.java)!!
-    }
-    var destDir = extractDir.dir("mods").asFile
-    destDir.deleteRecursively()
-    val uniqueJars = subprojects
-        .flatMap { p ->
-            p.configurations.runtimeClasspath.get().files
-        }
-        .distinctBy { it.name }
-        .toMutableList()
-    var jarFile: JarFile
-    uniqueJars.removeIf {
-        jarFile = JarFile(it)
-        val jarEntry = jarFile.getJarEntry("META-INF/neoforge.mods.toml")
-        var b = jarEntry == null
-        jarFile.close()
-        b
-    }
-
-    from(uniqueJars)
-    into(destDir)
-    exclude("neoforge-**.jar")
-}
+//tasks.register("test1") {
+//    subprojects.forEach {
+//        it.configurations.runtimeClasspath.get().allDependencies.forEach {
+//            println(it.name)
+//            println(it.version)
+//        }
+//    }
+//}
+//val extractAllDependencies by tasks.registering(Copy::class) {
+//    var extractDir = layout.buildDirectory.dir("extract").get()
+//    var changelog = file("changelog.md")
+//    if (changelog.exists().not()) {
+//        changelog.createNewFile()
+//    }
+//    extractDir.asFile.mkdirs()
+//    var profile = extractDir.file("profile.json").asFile
+//    if (profile.exists().not()) {
+//        profile.bufferedWriter(Charsets.UTF_8).use {
+//            gson.toJson(Data(arrayListOf()), it)
+//        }
+//    }
+//    val data = profile.bufferedReader(Charsets.UTF_8).use {
+//        gson.fromJson(it, Data::class.java)!!
+//    }
+//    var destDir = extractDir.dir("mods").asFile
+//    destDir.deleteRecursively()
+//    val uniqueJars = subprojects
+//        .flatMap { p ->
+//            p.configurations.runtimeClasspath.get().files
+//        }
+//        .distinctBy { it.name }
+//        .toMutableList()
+//    var jarFile: JarFile
+//    uniqueJars.removeIf {
+//        jarFile = JarFile(it)
+//        val jarEntry = jarFile.getJarEntry("META-INF/neoforge.mods.toml")
+//        var b = jarEntry == null
+//        jarFile.close()
+//        b
+//    }
+//
+//    from(uniqueJars)
+//    into(destDir)
+//    exclude("neoforge-**.jar")
+//}

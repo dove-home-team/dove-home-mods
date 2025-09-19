@@ -39,6 +39,7 @@ dependencies {
     implementation("cn.hutool:hutool-setting:5.8.40")
     implementation("cn.hutool:hutool-http:5.8.40")
     compileOnly("net.neoforged:moddev-gradle:2.0.+")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
 
 tasks.withType<KotlinCompile> {
