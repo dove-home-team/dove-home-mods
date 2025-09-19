@@ -10,6 +10,8 @@
 
 !build/extract/profile.json
 
+*.salive
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

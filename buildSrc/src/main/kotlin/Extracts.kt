@@ -52,10 +52,7 @@ fun Project.getModsDir(): Directory {
 fun Project.changeLogExtract(): TaskProvider<Task> {
 
     return tasks.register("changeLogExtract") {
-        val extractAllDependencies = tasks.getByName("extractAllDependencies")
-        dependsOn(extractAllDependencies)
         val modListChange = "\u115F"// 模组列表替换线，空白字符
-        val extractDir = getExtractDir()
         val changelog = getChangelog()
         var changeLogTemp: String
         if (!changelog.exists()) {
@@ -122,7 +119,7 @@ fun Project.changeLogExtract(): TaskProvider<Task> {
 fun Project.extractAllDependencies(): TaskProvider<Copy> {
     return tasks.register<Copy>("extractAllDependencies") {
         val modsDir = getModsDir()
-
+        modsDir.asFile.deleteRecursively()
         modsDir.mkdirs()
         val uniqueJars = subprojects
             .flatMap {
