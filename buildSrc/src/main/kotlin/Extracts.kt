@@ -96,11 +96,11 @@ fun Project.changeLogExtract(): TaskProvider<Task> {
                         val dataTime = now().toString().substring(0, 10)
                         if (!data.mods.containsKey(key)) {
                             data.mods[key] = value
-                            changeLogTemp = changeLogTemp.replace(modListChange, "modId:$key,version:$value,updated:${dataTime}\n${modListChange}")
+                            changeLogTemp = changeLogTemp.replace(modListChange, "- modId:$key,version:$value,updated:${dataTime}\n${modListChange}")
                         } else {
                             if (!value.contains(data.mods[key]!!)) {
                                 data.mods[key] = value
-                                changeLogTemp = changeLogTemp.replace(modListChange, "modId:$key,version:$value,updated:${dataTime}\n${modListChange}")
+                                changeLogTemp = changeLogTemp.replace(modListChange, "- modId:$key,version:$value,updated:${dataTime}\n${modListChange}")
                             }
                         }
                     }
