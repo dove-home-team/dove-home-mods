@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "C": {
-      "item": "minecraft:sandstone"
+      "tag": "c:sandstone/blocks"
     },
     "P": {
       "tag": "botania:petals"

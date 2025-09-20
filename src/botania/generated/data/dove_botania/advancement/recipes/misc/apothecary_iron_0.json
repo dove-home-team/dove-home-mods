@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_apothecary_sandstoneminecraft:sandstone": {
+    "has_apothecary_iron_minecraft:iron_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sandstone"
+            "items": "minecraft:iron_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dove_botania:apothecary_sandstone"
+        "recipe": "dove_botania:apothecary_iron_0"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_apothecary_sandstoneminecraft:sandstone"
+      "has_apothecary_iron_minecraft:iron_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "dove_botania:apothecary_sandstone"
+      "dove_botania:apothecary_iron_0"
     ]
   }
 }

@@ -1,15 +1,27 @@
-// 1.21.1	2025-09-19T23:25:40.25944	Registrate Provider for dove_botania [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-09-19T23:38:46.508491	Registrate Provider for dove_botania [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+6f6c83af6666cf249a74b24fba6d4c6ba56e09d6 assets/dove_botania/blockstates/apothecary_diamond.json
+f87ad659720408d595893a769cddf1253ce40f1a assets/dove_botania/blockstates/apothecary_gold.json
 03fd10df6b91ef9c00ee3399672763b900f771df assets/dove_botania/blockstates/apothecary_iron.json
 500dad35043c58ad059f95839dbd049384b796f3 assets/dove_botania/blockstates/apothecary_sandstone.json
-21692dd19ef8b7cb66a3f319c80361a0c56d1644 assets/dove_botania/lang/en_ud.json
-d1f145052354678f5ada2b45139a072b8869ee55 assets/dove_botania/lang/en_us.json
+40fcaad7eb56505457238c40ed93af0f13c47e5a assets/dove_botania/lang/en_ud.json
+478d799830ee8c0d1b44f9880c9dabd3e013021f assets/dove_botania/lang/en_us.json
+54eb5f1d518496fa327d5b48ef4c5cb8f824f999 assets/dove_botania/models/block/apothecary_diamond.json
+97887ea049bd00ec7c19894c1cfc449f3805a7b6 assets/dove_botania/models/block/apothecary_gold.json
 bbbcdaad2bf10574a30c8e5f7ec123f1c48c46b8 assets/dove_botania/models/block/apothecary_iron.json
 c0b15e298dc62d71500cc3cadd9ab2dbd987cb1e assets/dove_botania/models/block/apothecary_sandstone.json
+42bf48cb67464effa131eedf9a4895675e5e10dc assets/dove_botania/models/item/apothecary_diamond.json
+5dcb29fc67b9557fdb7c382d7398e0901efc57c3 assets/dove_botania/models/item/apothecary_gold.json
 a3a0e92f42312f5d961c6b6e78a8e78e9c44179c assets/dove_botania/models/item/apothecary_iron.json
 27481ae8376c150c570d2b240d3d72433cc85970 assets/dove_botania/models/item/apothecary_sandstone.json
-53a2c9382df2285023654b8a1065e519490a24ac data/dove_botania/advancement/recipes/misc/apothecary_iron.json
-fe570656fc8a839ea8fb0adeece8e95eab3470eb data/dove_botania/advancement/recipes/misc/apothecary_sandstone.json
+592987c1d09327c8b460e2b14b476d2242eba44f data/dove_botania/advancement/recipes/misc/apothecary_diamond_0.json
+ef93346658ac9f7c0cba134c332a8613b384bbb3 data/dove_botania/advancement/recipes/misc/apothecary_gold_0.json
+38f803619c269043896c7fe671754a88c42c5b57 data/dove_botania/advancement/recipes/misc/apothecary_iron_0.json
+7362fbb106d8a1addfcb6a064332daf9e3f3a4c9 data/dove_botania/advancement/recipes/misc/apothecary_sandstone_0.json
+1c1c616e47b62d4f33fcc1ce25a9911d3bf2a019 data/dove_botania/loot_table/blocks/apothecary_diamond.json
+815c78706bee7469b075d148feb95b7f8ef648c4 data/dove_botania/loot_table/blocks/apothecary_gold.json
 dfd48406403335e478c88001fd531ed8248946b9 data/dove_botania/loot_table/blocks/apothecary_iron.json
 a2d3674401d1e78a67b48fa2b46217e20737e74c data/dove_botania/loot_table/blocks/apothecary_sandstone.json
-00573129a57752dc50befae0079fab63a09c0c26 data/dove_botania/recipe/apothecary_iron.json
-c03ecaa8c6004c1979fd923f37fc6b86495e25a7 data/dove_botania/recipe/apothecary_sandstone.json
+acc8276dfcae242d52d9f46caf45c107cc46f1ec data/dove_botania/recipe/apothecary_diamond_0.json
+49a955e25dc57f5a83a95df21998982a11b4fc57 data/dove_botania/recipe/apothecary_gold_0.json
+00573129a57752dc50befae0079fab63a09c0c26 data/dove_botania/recipe/apothecary_iron_0.json
+9ab4fcd4db0507602b588da91edfc2e821e0d664 data/dove_botania/recipe/apothecary_sandstone_0.json

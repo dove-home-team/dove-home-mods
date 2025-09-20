@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:gold_block"
+    },
+    "P": {
+      "tag": "botania:petals"
+    }
+  },
+  "pattern": [
+    "CPC",
+    " C ",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dove_botania:apothecary_gold"
+  }
+}

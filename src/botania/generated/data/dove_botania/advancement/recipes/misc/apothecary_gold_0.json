@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_apothecary_ironminecraft:iron_block": {
+    "has_apothecary_gold_minecraft:gold_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_block"
+            "items": "minecraft:gold_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dove_botania:apothecary_iron"
+        "recipe": "dove_botania:apothecary_gold_0"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_apothecary_ironminecraft:iron_block"
+      "has_apothecary_gold_minecraft:gold_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "dove_botania:apothecary_iron"
+      "dove_botania:apothecary_gold_0"
     ]
   }
 }
