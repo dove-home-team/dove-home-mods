@@ -3,6 +3,7 @@ dependencies {
     localRuntime(project(":lib"))
     localRuntime(project(":act"))
     localRuntime(project(":botania"))
+    localRuntime(project(":nucleoplasm"))
     localRuntime("dev.architectury:architectury-neoforge:13.0.8")
     implementation("com.tterrag.registrate:Registrate:MC1.21-1.3.0+62")
     modImplementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.56")
