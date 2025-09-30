@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dove_pack:item/cactus_charcoal"
+  }
+}

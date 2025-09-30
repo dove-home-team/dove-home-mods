@@ -1,5 +1,6 @@
 
 dependencies {
+    compileOnly(project(":lib"))
     localRuntime(project(":lib"))
     localRuntime(project(":act"))
     localRuntime(project(":botania"))

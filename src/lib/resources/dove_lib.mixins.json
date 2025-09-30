@@ -2,7 +2,9 @@
   "required": true,
   "package": "io.github.dovehometeam.dovelib.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "AbstractFurnaceBlockEntityMixin"
+  ],
   "client": [],
   "server": [],
   "injectors": {
