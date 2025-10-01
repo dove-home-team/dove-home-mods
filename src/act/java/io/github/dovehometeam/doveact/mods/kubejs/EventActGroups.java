@@ -8,7 +8,7 @@ import dev.latvian.mods.kubejs.event.EventHandler;
  * @code @Date 2025/9/3 23:58:19
  */
 public class EventActGroups {
-    public static EventGroup GROUP = EventGroup.of("Act");
+    public static EventGroup GROUP = EventGroup.of("DoveAct");
     public static EventHandler REGISTRY = GROUP.common("registry", () -> RegistryActEventJs.class).hasResult();
 
 }

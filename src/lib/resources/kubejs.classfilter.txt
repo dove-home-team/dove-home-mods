@@ -1,0 +1,1 @@
++io/github/dovehometeam/dovelib/mods/kubejs
