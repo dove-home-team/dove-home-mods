@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.1",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+    "render_type": "cutout",
+	"textures": {
+		"north_west": "dove_act:block/minecraft/empty_furnace_front_on"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#north", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#east", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#south", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#west", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#up", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#down", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#north_west", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#missing", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#missing", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#north_west", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#missing", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#missing", "cullface": "down"}
+			}
+		}
+	]
+}

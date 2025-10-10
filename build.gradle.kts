@@ -94,7 +94,6 @@ subprojects {
                 sourceSet(sourceSets.main.get())
             }
         }
-
         setAccessTransformers(rootProject.file("src/${project.name}/resources/META-INF/accesstransformer.cfg"))
     }
 
