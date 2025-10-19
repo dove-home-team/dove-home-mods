@@ -3,6 +3,7 @@ dependencies {
     compileOnly(project(":lib"))
     localRuntime(project(":lib"))
     localRuntime(project(":act"))
+    localRuntime(project(":dim"))
     localRuntime(project(":botania"))
     localRuntime(project(":nucleoplasm"))
     localRuntime("dev.architectury:architectury-neoforge:13.0.8")
@@ -12,6 +13,8 @@ dependencies {
     compileOnly("dev.engine-room.vanillin:vanillin-neoforge-1.21.1:1.1.3-30")
     localRuntime("dev.engine-room.vanillin:vanillin-neoforge-1.21.1:1.1.3-30")
     localRuntime("dev.engine-room.flywheel:flywheel-neoforge-1.21.1:1.0.4-30")
+    localRuntime("dev.latvian.mods:kubejs-neoforge:2101.7.2-build.+")
+    localRuntime("curse.maven:enum-extender-js-1306125:6764759")
     modImplementation("com.simibubi.create:create-1.21.1:6.0.7-117:slim") {
         isTransitive = false
     }

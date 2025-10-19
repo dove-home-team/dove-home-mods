@@ -1,0 +1,11 @@
+{
+  "type": "dove_dim:desert_dim_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "dove_dim:desert"
+    },
+    "settings": "dove_dim:desert_noise"
+  }
+}

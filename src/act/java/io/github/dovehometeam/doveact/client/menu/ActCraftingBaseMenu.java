@@ -1,6 +1,7 @@
 package io.github.dovehometeam.doveact.client.menu;
 
 import io.github.dovehometeam.doveact.common.block.ActCraftingTableBaseBlock;
+import lombok.val;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -72,14 +73,23 @@ public class ActCraftingBaseMenu extends RecipeBookMenu<CraftingInput, CraftingR
             CraftingInput craftinginput = craftSlots.asCraftInput();
             ServerPlayer serverplayer = (ServerPlayer)player;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<RecipeHolder<CraftingRecipe>> optional =
-                    Objects.requireNonNull(level
-                                    .getServer())
-                            .getRecipeManager()
-                            .getRecipeFor(RecipeType.CRAFTING, craftinginput, level, recipe)
-                            .filter(holder -> menu.block().get().getGroups().contains("*") || menu.block().get()
-                                    .getGroups()
-                                    .contains(holder.value().getGroup()));
+
+            val optional = Objects.requireNonNull(level
+                            .getServer())
+                    .getRecipeManager()
+                    .getAllRecipesFor(RecipeType.CRAFTING)
+                    .stream().filter(holder -> {
+                        if (menu.block().get().getGroups().contains("*")) {
+                            return true;
+                        }
+                        for (String group : menu.block().get().getGroups()) {
+                            if (holder.value().getGroup().startsWith(group)) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    })
+                    .filter(holder -> holder.value().matches(craftinginput, level)).findFirst();
             if (optional.isPresent()) {
                 RecipeHolder<CraftingRecipe> recipeholder = optional.get();
                 CraftingRecipe craftingrecipe = recipeholder.value();

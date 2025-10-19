@@ -139,6 +139,9 @@ subprojects {
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.38")
         annotationProcessor("org.projectlombok:lombok:1.18.38")
+        compileOnly("mezz.jei:jei-1.21.1-neoforge-api:+")
+        "localRuntime"("mezz.jei:jei-1.21.1-neoforge:+")
+        "modImplementation"("me.shedaniel.cloth:cloth-config-neoforge:15.0.140")
     }
 
     publishing {

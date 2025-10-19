@@ -16,7 +16,8 @@ var projects = mapOf(
     "act" to "Act",
     "pack" to "Mod Pack",
     "botania" to "Botania",
-    "nucleoplasm" to "Nucleoplasm"
+    "nucleoplasm" to "Nucleoplasm",
+    "dim" to "Dimension"
 )
 projects.forEach { (id, name) ->
      val replaceProperties = mapOf(
