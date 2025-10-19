@@ -3,7 +3,7 @@ dependencies {
     compileOnly(project(":lib"))
     localRuntime(project(":lib"))
     localRuntime(project(":act"))
-    localRuntime(project(":dim"))
+    modImplementation(project(":dim"))
     localRuntime(project(":botania"))
     localRuntime(project(":nucleoplasm"))
     localRuntime("dev.architectury:architectury-neoforge:13.0.8")

@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-19T23:28:39.7995633	Registrate Provider for dove_pack [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-10-20T03:47:41.1457825	Registrate Provider for dove_pack [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 38798a0aaf739dd606611e2151af9dd7f07bb09e assets/dove_pack/lang/en_ud.json
 61825fb71fc7fdd2ac9b411c34956f9c6e0ea220 assets/dove_pack/lang/en_us.json
 43f3a688dc5255c38890139b1398151797dcd1cd assets/dove_pack/models/item/cactus_charcoal.json
@@ -14,6 +14,7 @@ a58956449d5bc69de555ca1425ae4bfb9066b898 data/dove_pack/advancement/recipes/misc
 ab353dddd2296bb9292b7497d82c460f38e77243 data/dove_pack/advancement/recipes/misc/sandstone.json
 7e4288159b567957a3012532f80f51b97f5cac0f data/dove_pack/advancement/recipes/misc/sandstone/sandstone_stick.json
 9af04ad91f79f1a22ed98c99764e42bee2c9747c data/dove_pack/advancement/recipes/misc/stone/sandstone_stick.json
+ebbf7c517e0062eed82a74f672e1f3101314e1c1 data/dove_pack/recipe/at/sandstone.json
 5155e67444814ea28c0ef9192a5b996c989f5a2b data/dove_pack/recipe/diamond/sandstone_stick.json
 1162df2f0d2ea83bcbc8bfe283a2c438c1a3bc84 data/dove_pack/recipe/emerald/sandstone_stick.json
 3f76156d2ce58dbe0f09896d42255ee99ad1bdf5 data/dove_pack/recipe/glowstone/sandstone_stick.json

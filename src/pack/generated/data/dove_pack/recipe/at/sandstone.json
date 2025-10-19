@@ -1,0 +1,27 @@
+{
+  "type": "dove_pack:formation_serial",
+  "key": {
+    "#": {
+      "item": "minecraft:acacia_slab"
+    },
+    "A": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "###########",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "# A A A A #",
+    "###########"
+  ],
+  "result": {
+    "id": "minecraft:sandstone"
+  }
+}
