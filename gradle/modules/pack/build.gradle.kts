@@ -19,6 +19,7 @@ dependencies {
         isTransitive = false
     }
     modImplementation("top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1")
+    modImplementation("com.lowdragmc.photon:photon-neoforge-1.21.1:2.0.6")
 
 //    implementation(":botania-neoforge-1.21.1-451-SNAPSHOT@jar")
 }

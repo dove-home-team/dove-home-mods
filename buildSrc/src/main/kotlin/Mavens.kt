@@ -15,6 +15,7 @@ fun RepositoryHandler.mavenSettings(project: Project) {
             includeGroup("com.github.glitchfiend")
         }
     }
+    maven("https://maven.firstdarkdev.xyz/snapshots")
     maven("https://www.jitpack.io")
     maven("https://maven.shedaniel.me")
     maven("https://maven.crystaelix.com/releases/") {
