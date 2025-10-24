@@ -1,0 +1,14 @@
+package io.github.dovehometeam.dovemultiritual.event;
+
+import io.github.dovehometeam.dovemultiritual.Const;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+
+@EventBusSubscriber(modid = Const.MODID)
+public class DataEvents {
+    @SubscribeEvent
+    public static void gatherEvent(GatherDataEvent event) {
+
+    }
+}
