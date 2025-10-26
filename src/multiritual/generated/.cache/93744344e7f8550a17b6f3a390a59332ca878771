@@ -1,0 +1,4 @@
+// 1.21.1	2025-10-26T02:26:56.4730563	Registrate Provider for multiritual [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+3931477ed4af9e134b8e02e32a7d6f125886c1b9 assets/multiritual/lang/en_ud.json
+9f579051fe10474acd919bfbfcd561ce45d30214 assets/multiritual/lang/en_us.json
+86d4ab463db005c5d2d145298e40fa6ad8e5cd6c data/multiritual/loot_table/blocks/ritual_core.json
