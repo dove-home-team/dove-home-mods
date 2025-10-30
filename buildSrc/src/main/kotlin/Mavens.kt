@@ -6,82 +6,91 @@ import org.gradle.kotlin.dsl.maven
  * @author baka4n
  * @code @Date 2025/9/18 15:30:41
  */
-fun RepositoryHandler.mavenSettings(project: Project) {
 
-    mavenLocal()
-    mavenCentral()
-    maven("https://maven.minecraftforge.net/") {
-        content {
-            includeGroup("com.github.glitchfiend")
-        }
-    }
+fun Project.mavenSettings() {
+    repositories
+        .local()
+        .central()
+        .mavenUrlSimple("https://maven.minecraftforge.net/", "com.github.glitchfiend")
+        .mavenUrlSimple("https://maven.firstdarkdev.xyz/snapshots")
+        .mavenUrlSimple("https://www.jitpack.io")
+        .mavenUrlSimple("https://maven.shedaniel.me")
+        .mavenUrlSimple("https://maven.crystaelix.com/releases/", "thelm.packagedmekemicals",
+            "thelm.packagedauto", "thelm.packagedexcrafting")
+        .mavenUrlSimple("https://jitpack.io", "com.github.rtyley")
+        .mavenUrlSimple("https://beta.cursemaven.com", "curse.maven")
+        .mavenUrlSimple("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/", "software.bernie.geckolib")
+        .mavenUrlSimple("https://maven.neoforged.net/releases")
+        .mavenUrlSimple("https://maven.parchmentmc.org")
+        .mavenUrlSimple("https://maven.dragons.plus/releases")
+        .mavenUrlSimple("https://maven.createmod.net", "dev.engine-room.flywheel",
+            "dev.engine-room.vanillin",
+            "com.simibubi.create", "net.createmod.ponder") // Ponder, Flywheel
+        .mavenUrlSimple("https://maven.ithundxr.dev/snapshots")
+        .mavenUrlSimple("https://mvn.devos.one/snapshots") // Registrate
+        .mavenUrlSimple("https://maven.blamejared.com") // Jei
+        .mavenUrlSimple("https://maven.theillusivec4.top/") // Curios
+        .mavenUrlSimple("https://api.modrinth.com/maven", "maven.modrinth")
+        .mavenUrlSimple("https://raw.githubusercontent.com/Fuzss/modresources/main/maven")
+        // NeoForge config api port, needed by ponder
+        .mavenUrlSimple("https://maven.fallenbreath.me/releases") // Conditional Mixin
+        .mavenUrlSimple("https://raw.github.com/0999312/MMMaven/main/repository")
+        .mavenUrlSimple("https://modmaven.dev/artifactory/local-releases/")
+        .mavenUrlSimple("https://maven.blakesmods.com/releases")
+        .mavenUrlSimple("https://modmaven.dev/", "com.alexthw.ars_elemental")
+        .mavenUrlSimple("https://maven.architectury.dev/")
+        .mavenUrlSimple("https://maven.latvian.dev/releases", "dev.latvian.mods",
+            "dev.latvian.apps")
+        .mavenUrlSimple("https://thedarkcolour.github.io/KotlinForForge/")
+        .libs(rootProject, "libs")
 
-    maven("https://maven.firstdarkdev.xyz/snapshots")
-    maven("https://www.jitpack.io")
-    maven("https://maven.shedaniel.me")
-    maven("https://maven.crystaelix.com/releases/") {
+}
+
+fun RepositoryHandler.mavenUrlSimple(
+    url: String,
+    vararg includeGroup: String
+): RepositoryHandler {
+    return mavenUrl(url = url, includeGroup = includeGroup)
+}
+
+fun RepositoryHandler.mavenUrl(
+    url: String,
+    mavenName: String = "",
+    excludeGroup: Array<String> = emptyArray(),
+    vararg includeGroup: String
+): RepositoryHandler {
+    maven(url) {
+        if (mavenName.isNotEmpty()) name = mavenName
+        if (includeGroup.isEmpty() && excludeGroup.isEmpty()) return@maven
         content {
-            includeGroup("thelm.packagedmekemicals")
-            includeGroup("thelm.packagedauto")
-            includeGroup("thelm.packagedexcrafting")
+            if (includeGroup.isNotEmpty())
+                includeGroup.forEach {
+                    includeGroup(it)
+                }
+            if (excludeGroup.isNotEmpty())
+                excludeGroup.forEach {
+                    excludeGroup(it)
+                }
         }
     }
-    maven("https://jitpack.io") {
-        content {
-            includeGroup("com.github.rtyley")
-        }
+    return this
+}
+
+fun RepositoryHandler.libs(project: Project, dir: String): RepositoryHandler {
+    val libs = project.file(dir)
+    libs.mkdirs()
+    this.flatDir {
+        dir(libs)
     }
-    maven("https://beta.cursemaven.com") {
-        content {
-            includeGroup("curse.maven")
-        }
-    }
-    maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/") {
-        content {
-            includeGroup("software.bernie.geckolib")
-        }
-    }
-    maven("https://maven.neoforged.net/releases")
-    maven("https://maven.parchmentmc.org")
-    maven("http://maven.dragons.plus/releases") {
-        isAllowInsecureProtocol = true
-    } // Ponder, Flywheel
-    maven("https://maven.createmod.net") {
-        content {
-            includeGroup("dev.engine-room.flywheel")
-            includeGroup("dev.engine-room.vanillin")
-            includeGroup("com.simibubi.create")
-            includeGroup("net.createmod.ponder")
-        }
-    } // Ponder, Flywheel
-    maven("https://maven.ithundxr.dev/snapshots")
-    maven("https://mvn.devos.one/snapshots") // Registrate
-    maven("https://maven.blamejared.com") // JEI
-    maven("https://maven.theillusivec4.top/") // Curios API
-    maven("https://api.modrinth.com/maven") {
-        content {
-            includeGroup("maven.modrinth")
-        }
-    }
-    maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven") // NeoForge config api port, needed by ponder
-    maven("https://maven.fallenbreath.me/releases") // Conditional Mixin
-    maven("https://raw.github.com/0999312/MMMaven/main/repository")
-    maven("https://modmaven.dev/artifactory/local-releases/")
-    maven("https://maven.blakesmods.com/releases")
-    maven("https://modmaven.dev/") {
-        content {
-            includeGroup("com.alexthw.ars_elemental")
-        }
-    }
-    maven("https://maven.architectury.dev/")
-    maven("https://maven.latvian.dev/releases") {
-        content {
-            includeGroup("dev.latvian.mods")
-            includeGroup("dev.latvian.apps")
-        }
-    }
-    maven("https://thedarkcolour.github.io/KotlinForForge/")
-    flatDir {
-        dir(project.rootProject.file("libs"))
-    }
+    return this
+}
+
+
+fun RepositoryHandler.local(): RepositoryHandler {
+    this.mavenLocal()
+    return this
+}
+fun RepositoryHandler.central(): RepositoryHandler {
+    this.mavenCentral()
+    return this
 }

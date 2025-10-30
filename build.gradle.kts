@@ -14,7 +14,7 @@ plugins {
 }
 
 allprojects {
-    repositories.mavenSettings(project)
+    mavenSettings()
     `minotaur-apply`
 
     modrinth {
